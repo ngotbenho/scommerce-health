@@ -69,11 +69,14 @@
             filter: grayscale(100%);
             opacity: 0.6;
             transition: all 0.4s ease;
+            max-height: 48px;
+            width: auto;
+            object-fit: contain;
         }
         .logo-item:hover {
             filter: grayscale(0%);
             opacity: 1;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -84,7 +87,6 @@
     <header class="bg-surface py-6 px-10 border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm">
         <div class="max-w-[1200px] mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
-                <!-- Logo Scommerce chính trên Header -->
                 <img src="https://i.postimg.cc/t1LVg3DN/Logo-Scom-01.png" alt="Scommerce Logo" class="h-10 w-auto" />
                 <span class="text-primary font-black text-xl tracking-tight hidden md:block uppercase">Health Care</span>
             </div>
@@ -142,15 +144,21 @@
                     <h3 class="text-on-surface-variant font-bold text-sm uppercase tracking-[0.3em]">Hệ sinh thái thành viên</h3>
                     <div class="h-1 w-12 bg-primary mx-auto rounded-full"></div>
                 </div>
-                <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 px-4">
-                    <!-- Logo Scommerce -->
-                    <img src="https://i.postimg.cc/t1LVg3DN/Logo-Scom-01.png" alt="Scommerce" class="h-10 md:h-12 w-auto logo-item">
-                    <!-- Logo GHN -->
-                    <img src="https://i.postimg.cc/ZBpvvWM6/GHN-Logo.png" alt="GHN" class="h-10 md:h-12 w-auto logo-item">
-                    <!-- Logo Ahamove -->
-                    <img src="https://i.postimg.cc/phz55m14/full-logo-01.png" alt="Ahamove" class="h-10 md:h-12 w-auto logo-item">
-                    <!-- Logo GHN Logistics -->
-                    <img src="https://i.postimg.cc/d77yvHRq/LOGO-GHN-LOGISTICS-01.png" alt="GHN Logistics" class="h-10 md:h-12 w-auto logo-item">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center px-4">
+                    <!-- 1. Logo Scommerce -->
+                    <img src="https://i.postimg.cc/t1LVg3DN/Logo-Scom-01.png" alt="Scommerce" class="logo-item">
+                    
+                    <!-- 2. Logo Giao Hàng Nhanh -->
+                    <img src="https://i.postimg.cc/ZBpvvWM6/GHN-Logo.png" alt="Giao Hàng Nhanh" class="logo-item">
+                    
+                    <!-- 3. Logo Giao hàng nặng -->
+                    <img src="https://i.postimg.cc/mD7W7k2h/logo-ghn-logistics-01.png" alt="Giao Hàng Nặng" class="logo-item">
+                    
+                    <!-- 4. Logo Giao hàng nhanh logistics -->
+                    <img src="https://i.postimg.cc/d77yvHRq/LOGO-GHN-LOGISTICS-01.png" alt="GHN Logistics" class="logo-item">
+                    
+                    <!-- 5. Logo Ahamove -->
+                    <img src="https://i.postimg.cc/phz55m14/full-logo-01.png" alt="Ahamove" class="logo-item">
                 </div>
             </section>
         </div>
@@ -162,7 +170,6 @@
                 <p class="text-on-surface-variant">Chọn chương trình bảo hiểm của bạn để xem hạn mức chi tiết.</p>
             </div>
             
-            <!-- Tabs chương trình -->
             <div class="flex flex-wrap gap-3 my-4">
                 <button onclick="selectProgram(1)" id="btn-ct1" class="program-btn active px-6 py-2.5 rounded-full border border-outline-variant font-bold text-sm uppercase">Chương trình 1</button>
                 <button onclick="selectProgram(2)" id="btn-ct2" class="program-btn px-6 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-bold text-sm uppercase">Chương trình 2</button>
@@ -171,9 +178,7 @@
                 <button onclick="selectProgram(5)" id="btn-ct5" class="program-btn px-6 py-2.5 rounded-full border border-outline-variant text-on-surface-variant font-bold text-sm uppercase">Chương trình 5</button>
             </div>
 
-            <!-- Lưới quyền lợi -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Tai nạn -->
                 <div class="md:col-span-2 bg-white rounded-3xl p-8 border border-outline-variant benefit-card">
                     <div class="flex items-center gap-3 mb-6">
                         <div class="w-10 h-10 bg-orange-100 text-primary rounded-xl flex items-center justify-center">
@@ -185,7 +190,6 @@
                     <p class="text-on-surface-variant text-sm font-bold uppercase tracking-widest">Hạn mức / Người / Năm</p>
                 </div>
 
-                <!-- Trợ cấp nằm viện -->
                 <div class="bg-secondary text-white rounded-3xl p-8 benefit-card flex flex-col justify-between">
                     <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
@@ -196,14 +200,12 @@
                     </div>
                 </div>
 
-                <!-- Thai sản -->
                 <div class="bg-white rounded-3xl p-8 border border-outline-variant benefit-card">
                     <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-6 text-xl">👶</div>
                     <h4 class="font-bold text-on-surface-variant uppercase text-xs tracking-widest mb-2">Thai sản</h4>
                     <p class="text-2xl font-black text-on-surface" id="val-maternity">10.000.000đ</p>
                 </div>
 
-                <!-- Tử kỳ -->
                 <div class="bg-white rounded-3xl p-8 border border-outline-variant benefit-card">
                     <div class="w-10 h-10 bg-gray-100 text-gray-600 rounded-xl flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
@@ -212,7 +214,6 @@
                     <p class="text-2xl font-black text-on-surface" id="val-death">30 tháng lương</p>
                 </div>
 
-                <!-- Vật lý trị liệu -->
                 <div class="bg-white rounded-3xl p-8 border border-outline-variant benefit-card">
                     <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.51 4.05 3 5.5l7 7Z"/></svg>
@@ -260,7 +261,7 @@
             <div class="max-w-3xl space-y-4">
                 <details class="group bg-white border border-outline-variant rounded-2xl p-6 open:shadow-md transition-all">
                     <summary class="flex justify-between items-center cursor-pointer font-bold list-none">
-                        Bảo hiểm có hiệu lực từ khi nào?
+                        Bảoo hiểm có hiệu lực từ khi nào?
                         <svg class="w-5 h-5 group-open:rotate-180 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                     </summary>
                     <p class="mt-4 text-on-surface-variant text-sm leading-relaxed italic">
@@ -289,7 +290,6 @@
     </footer>
 
     <script>
-        // Dữ liệu quyền lợi các chương trình
         const programData = {
             1: { accident: "30.000.000đ", hospital: "150.000đ / ngày", death: "30 tháng lương", maternity: "10.000.000đ", physio: "160.000đ / lần" },
             2: { accident: "50.000.000đ", hospital: "250.000đ / ngày", death: "36 tháng lương", maternity: "15.000.000đ", physio: "200.000đ / lần" },
@@ -298,7 +298,6 @@
             5: { accident: "200.000.000đ", hospital: "1.000.000đ / ngày", death: "60 tháng lương", maternity: "50.000.000đ", physio: "700.000đ / lần" }
         };
 
-        // Hàm chuyển đổi Chương trình
         function selectProgram(id) {
             document.querySelectorAll('.program-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById('btn-ct' + id).classList.add('active');
@@ -313,7 +312,6 @@
             }
         }
 
-        // Hàm điều hướng trang (SPA style)
         function navigateTo(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             const targetPage = document.getElementById('page-' + pageId);
@@ -335,4 +333,5 @@
         }
     </script>
 </body>
+
 </html>
