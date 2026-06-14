@@ -176,13 +176,13 @@
                         </div>
                         <ul class="text-on-surface-variant text-xs md:text-sm space-y-3 pl-4 list-disc leading-relaxed">
                             <li>
-                                <strong>Nhóm chức danh đặc biệt:</strong> <em>Quản lý khu vực, Trưởng bưu cục, Giám sát vận tải, Giám sát kho trung chuyển, Điều phối kho trung chuyển</em> và <em>Điều phối vận tải</em> được tham gia bảo hiểm <strong>ngay sau khi vượt qua giai đoạn thử vai</strong>.
+                                <strong>Nhóm chức danh:</strong> <em>Quản lý khu vực, Trưởng bưu cục, Giám sát vận tải, Giám sát kho trung chuyển, Điều phối kho trung chuyển</em> và <em>Điều phối vận tải</em> được tham gia bảo hiểm <strong>ngay sau khi vượt qua giai đoạn thử vai</strong>.
                             </li>
                             <li>
-                                <strong>Nhóm Executive cũ:</strong> Được tham gia bảo hiểm sau khi <strong>hoàn thành thời gian thử việc</strong> và chính thức ký kết HĐLĐ với Công ty.
+                                <strong>Executive:</strong> Được tham gia bảo hiểm sau khi <strong>hoàn thành thời gian thử việc</strong> và chính thức ký kết HĐLĐ với Công ty.
                             </li>
                             <li>
-                                <strong>Các vị trí còn lại:</strong> Được mua ngay khi <strong>ký hợp đồng lao động chính thức</strong> cùng các Công ty trực thuộc tập đoàn.
+                                <strong>Các vị trí gián tiếp còn lại:</strong> Được mua ngay khi <strong>ký hợp đồng lao động chính thức</strong> cùng các Công ty trực thuộc tập đoàn.
                             </li>
                         </ul>
                     </div>
@@ -272,7 +272,7 @@
             <div class="mt-4 flex justify-center">
                 <a id="program-detail-link" href="https://drive.google.com/file/d/178yywzbkgXYpI4zRCgQFC77mu-617Nr4/view?usp=drive_link" target="_blank" class="bg-white text-secondary border-2 border-secondary/10 px-10 py-4 rounded-2xl font-black text-xs hover:bg-secondary hover:text-white transition-all shadow-xl shadow-gray-100 flex items-center gap-3 group">
                     <span class="uppercase tracking-widest">Chi tiết Chương trình 1</span>
-                    <svg class="group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                    <svg class="group-hover:translate-y-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
             </div>
         </div>
@@ -312,7 +312,7 @@
         <!-- HỎI ĐÁP -->
         <div id="page-faq" class="page-content flex-col gap-16">
             
-            <!-- Hộp FAQ được mở rộng toàn bộ chiều ngang (Requirement 4) -->
+            <!-- Hộp FAQ được mở rộng toàn bộ chiều ngang -->
             <div class="space-y-6 w-full overflow-hidden">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <h2 class="text-3xl font-black text-[#2D241F]">Câu hỏi thường gặp</h2>
@@ -333,7 +333,7 @@
                         </div>
                     </div>
                     
-                    <!-- Chỉ báo vuốt ngang sinh động (Requirement 2: Bỏ bộ đếm) -->
+                    <!-- Chỉ báo vuốt ngang sinh động -->
                     <div id="faq-hint" class="hidden flex items-center justify-start mt-2 text-xs text-on-surface-variant font-bold px-1">
                          <span class="flex items-center gap-1 text-primary">
                              Vuốt sang phải để xem thêm 
@@ -345,7 +345,7 @@
                 </div>
             </div>
 
-            <!-- Khu vực Form đối xứng ở cuối trang (Requirement 3: Bỏ box decoration và đưa form Q&A xuống) -->
+            <!-- Khu vực Form đối xứng ở cuối trang -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-10 border-t border-outline-variant/30">
                 <!-- Cột trái: Form Thu Thập Feedback Truyền Thông BHSK -->
                 <div class="bg-white rounded-[32px] p-8 border border-outline-variant shadow-sm h-fit">
@@ -373,7 +373,7 @@
                     <p id="feedback-form-message" class="hidden mt-4 text-center text-sm font-bold text-green-600"></p>
                 </div>
 
-                <!-- Cột phải: Form Gửi thắc mắc cho HR (Di chuyển từ trên xuống cực kỳ đối xứng) -->
+                <!-- Cột phải: Form Gửi thắc mắc cho HR -->
                 <div class="bg-white rounded-[32px] p-8 border border-outline-variant shadow-sm h-fit">
                     <h3 class="text-xl font-black mb-6 flex items-center gap-2 text-secondary">
                         <span class="text-primary">●</span> Gửi câu hỏi cho chúng tôi
@@ -392,6 +392,10 @@
                                 <option value="Gido">Gido</option>
                             </select>
                         </div>
+                        
+                        <!-- Thêm trường nhập liệu Telegram (Không bắt buộc) -->
+                        <input type="text" name="telegram" placeholder="Tài khoản Telegram - VD: @TenTelegram" class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm">
+                        
                         <textarea name="message" rows="4" placeholder="Nhập thắc mắc của bạn tại đây..." class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm" required></textarea>
                         <button type="submit" id="submit-btn" class="w-full bg-primary text-white py-4 rounded-2xl font-black shadow-lg shadow-orange-100 hover:brightness-110 transition-all uppercase tracking-wider text-sm">Gửi thắc mắc</button>
                     </form>
@@ -676,6 +680,7 @@
                 name: formData.get('name'),
                 employeeId: formData.get('employeeId'),
                 company: formData.get('company'),
+                telegram: formData.get('telegram') || '', // Gửi trường telegram (optional) sang Apps Script
                 message: formData.get('message'),
                 timestamp: new Date().toLocaleString()
             };
