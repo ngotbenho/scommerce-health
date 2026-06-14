@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <title>Scommerce Health - Cổng Thông Tin Bảo Hiểm</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -32,6 +32,7 @@
         body {
             font-family: 'Be Vietnam Pro', sans-serif;
             scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
         }
         .page-content {
             display: none;
@@ -61,15 +62,22 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        .benefit-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        @media (hover: hover) {
+            .benefit-card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+            }
         }
         .logo-item {
-            max-height: 40px;
+            max-height: 32px;
             width: auto;
             object-fit: contain;
             transition: all 0.4s ease;
+        }
+        @media (min-width: 768px) {
+            .logo-item {
+                max-height: 40px;
+            }
         }
         .logo-item:hover, .logo-item.active-logo {
             transform: scale(1.05);
@@ -81,7 +89,6 @@
             background-position: right 1rem center;
             background-size: 1em;
         }
-        /* Ẩn scrollbar cho cả thiết bị di động và máy tính */
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -89,7 +96,6 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        /* Hiệu ứng chuyển động ngang mượt mà cho chỉ báo */
         @keyframes bounceHorizontal {
             0%, 100% { transform: translateX(0); }
             50% { transform: translateX(6px); }
@@ -100,49 +106,49 @@
     </style>
 </head>
 
-<body class="bg-background text-on-surface flex flex-col min-h-screen antialiased">
+<body class="bg-background text-on-surface flex flex-col min-h-screen antialiased overflow-x-hidden">
 
     <!-- Header -->
-    <header class="bg-surface py-6 px-10 border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-[1200px] mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-3 cursor-pointer shrink-0" onclick="navigateTo('home')">
-                <img src="https://i.postimg.cc/t1LVg3DN/Logo-Scom-01.png" alt="Scommerce Logo" class="h-10 w-auto" />
+    <header class="bg-surface border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-2 cursor-pointer shrink-0" onclick="navigateTo('home')">
+                <img src="https://i.postimg.cc/t1LVg3DN/Logo-Scom-01.png" alt="Scommerce Logo" class="h-8 md:h-10 w-auto" />
                 <span class="text-primary font-black text-xl tracking-tight hidden lg:block uppercase">Health Care</span>
             </div>
             
-            <nav class="flex items-center gap-8 text-xs md:text-sm">
-                <button onclick="navigateTo('home')" class="nav-link active text-on-surface-variant font-bold uppercase tracking-wider">Trang chủ</button>
-                <button onclick="navigateTo('benefits')" class="nav-link text-on-surface-variant font-bold uppercase tracking-wider">Quyền lợi</button>
-                <button onclick="navigateTo('guide')" class="nav-link text-on-surface-variant font-bold uppercase tracking-wider">Hướng dẫn</button>
-                <button onclick="navigateTo('faq')" class="nav-link text-on-surface-variant font-bold uppercase tracking-wider whitespace-nowrap">Hỏi đáp</button>
+            <nav class="flex items-center gap-4 sm:gap-8 text-xs md:text-sm overflow-x-auto hide-scrollbar scroll-smooth -my-2 py-2 whitespace-nowrap">
+                <button onclick="navigateTo('home')" class="nav-link active text-on-surface-variant font-bold uppercase tracking-wider select-none shrink-0">Trang chủ</button>
+                <button onclick="navigateTo('benefits')" class="nav-link text-on-surface-variant font-bold uppercase tracking-wider select-none shrink-0">Quyền lợi</button>
+                <button onclick="navigateTo('guide')" class="nav-link text-on-surface-variant font-bold uppercase tracking-wider select-none shrink-0">Hướng dẫn</button>
+                <button onclick="navigateTo('faq')" class="nav-link text-on-surface-variant font-bold uppercase tracking-wider whitespace-nowrap select-none shrink-0">Hỏi đáp</button>
             </nav>
         </div>
     </header>
 
-    <main class="flex-grow w-full max-w-[1100px] mx-auto px-6 py-10">
+    <main class="flex-grow w-full max-w-[1100px] mx-auto px-4 sm:px-6 py-6 md:py-10 overflow-x-hidden">
         
         <!-- TRANG CHỦ -->
         <div id="page-home" class="page-content active flex-col gap-10 md:gap-16">
-            <section class="flex flex-col md:flex-row items-center gap-10 md:gap-12 py-5 md:py-10">
-                <div class="flex-1 space-y-6 text-center md:text-left">
+            <section class="flex flex-col md:flex-row items-center gap-8 md:gap-12 py-3 md:py-10">
+                <div class="flex-1 space-y-6 text-center md:text-left order-2 md:order-1">
                     <span class="bg-orange-100 text-primary px-4 py-1.5 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest inline-block">Employee Wellbeing 2026</span>
-                    <h1 class="text-4xl md:text-6xl font-black text-[#2D241F] leading-tight">Bảo vệ sức khỏe đội ngũ với <span class="text-primary">Bảo hiểm Generali</span></h1>
+                    <h1 class="text-3xl sm:text-4xl md:text-6xl font-black text-[#2D241F] leading-tight px-2 sm:px-0">Bảo vệ sức khỏe đội ngũ với <span class="text-primary">Bảo hiểm Generali</span></h1>
                     
                     <div class="bg-white border-l-4 border-primary p-4 rounded-r-2xl shadow-sm inline-block text-left">
                         <p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Thời hạn BHSK 2026</p>
-                        <p class="text-lg font-black text-on-surface">01/05/2026 – 30/04/2027</p>
+                        <p class="text-base sm:text-lg font-black text-on-surface">01/05/2026 – 30/04/2027</p>
                     </div>
 
-                    <p class="text-on-surface-variant text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
+                    <p class="text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0 px-2 sm:px-0">
                         Cổng thông tin tra cứu quyền lợi bảo hiểm và hướng dẫn bồi thường dành riêng cho thành viên Scommerce, Giao Hàng Nhanh, Giao Hàng Nặng, Ahamove, Ahafast, Gido.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <button onclick="navigateTo('benefits')" class="bg-primary text-white px-8 py-4 rounded-2xl font-black shadow-xl shadow-orange-200 hover:-translate-y-1 transition-transform">Xem quyền lợi của tôi</button>
-                        <button onclick="navigateTo('guide')" class="bg-white border border-outline-variant px-8 py-4 rounded-2xl font-bold hover:bg-gray-50 transition-colors">Cách bồi thường</button>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2 px-4 sm:px-0">
+                        <button onclick="navigateTo('benefits')" class="bg-primary text-white px-8 py-4 rounded-2xl font-black shadow-xl shadow-orange-200 hover:-translate-y-1 transition-transform min-h-[48px] flex items-center justify-center">Xem quyền lợi của tôi</button>
+                        <button onclick="navigateTo('guide')" class="bg-white border border-outline-variant px-8 py-4 rounded-2xl font-bold hover:bg-gray-50 transition-colors min-h-[48px] flex items-center justify-center">Cách bồi thường</button>
                     </div>
                 </div>
-                <div class="flex-1 relative w-full">
-                    <div class="w-full aspect-[4/3] bg-orange-50 rounded-[40px] flex items-center justify-center relative overflow-hidden border border-orange-100 shadow-2xl">
+                <div class="flex-1 relative w-full order-1 md:order-2 px-2 sm:px-0">
+                    <div class="w-full aspect-[4/3] bg-orange-50 rounded-[28px] md:rounded-[40px] flex items-center justify-center relative overflow-hidden border border-orange-100 shadow-xl">
                         <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1000" alt="Health Care Concept" class="w-full h-full object-cover" />
                         <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent"></div>
                     </div>
@@ -150,31 +156,29 @@
             </section>
 
             <!-- Điều kiện được tham gia lên Trang chủ -->
-            <section class="py-10 border-t border-outline-variant/30">
+            <section class="py-10 border-t border-outline-variant/30 px-2 sm:px-0">
                 <div class="text-center space-y-2 mb-8">
-                    <h3 class="text-secondary font-black text-2xl uppercase tracking-tight">Điều kiện được tham gia Bảo hiểm</h3>
+                    <h3 class="text-secondary font-black text-xl sm:text-2xl uppercase tracking-tight">Điều kiện được tham gia Bảo hiểm</h3>
                     <div class="h-1 w-12 bg-primary mx-auto rounded-full"></div>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Khối 01: Đối tượng -->
-                    <div class="bg-white rounded-3xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-start">
+                    <div class="bg-white rounded-3xl p-5 sm:p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-start">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-orange-100 text-primary rounded-xl flex items-center justify-center text-lg font-black">01</div>
-                            <h4 class="font-bold text-lg text-secondary">Đối tượng áp dụng</h4>
+                            <div class="w-10 h-10 bg-orange-100 text-primary rounded-xl flex items-center justify-center text-lg font-black shrink-0">01</div>
+                            <h4 class="font-bold text-base sm:text-lg text-secondary">Đối tượng áp dụng</h4>
                         </div>
                         <p class="text-on-surface-variant text-sm leading-relaxed">
                             Là nhân viên chính thức thuộc nhóm lao động <strong>Gián Tiếp (Indirect)</strong> đã ký kết Hợp Đồng Lao Động với công ty.
                         </p>
                     </div>
 
-                    <!-- Khối 02: Cấp bậc & Thâm niên -->
-                    <div class="bg-white rounded-3xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-start">
+                    <div class="bg-white rounded-3xl p-5 sm:p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-start">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 bg-orange-100 text-primary rounded-xl flex items-center justify-center text-lg font-black">02</div>
-                            <h4 class="font-bold text-lg text-secondary">Cấp bậc & Thâm niên (Cập nhật mới)</h4>
+                            <div class="w-10 h-10 bg-orange-100 text-primary rounded-xl flex items-center justify-center text-lg font-black shrink-0">02</div>
+                            <h4 class="font-bold text-base sm:text-lg text-secondary">Cấp bậc & Thâm niên (Cập nhật mới)</h4>
                         </div>
-                        <ul class="text-on-surface-variant text-xs md:text-sm space-y-3 pl-4 list-disc leading-relaxed">
+                        <ul class="text-on-surface-variant text-xs sm:text-sm space-y-3 pl-4 list-disc leading-relaxed">
                             <li>
                                 <strong>Nhóm chức danh:</strong> <em>Quản lý khu vực, Trưởng bưu cục, Giám sát vận tải, Giám sát kho trung chuyển, Điều phối kho trung chuyển</em> và <em>Điều phối vận tải</em> được tham gia bảo hiểm <strong>ngay sau khi vượt qua giai đoạn thử vai</strong>.
                             </li>
@@ -189,12 +193,12 @@
                 </div>
             </section>
 
-            <section class="py-12 border-t border-outline-variant/30">
-                <div class="text-center space-y-2 mb-12">
+            <section class="py-10 border-t border-outline-variant/30 px-2 sm:px-0">
+                <div class="text-center space-y-2 mb-10">
                     <h3 class="text-on-surface-variant font-bold text-xs md:text-sm uppercase tracking-[0.3em]">Hệ sinh thái thành viên</h3>
                     <div class="h-1 w-12 bg-primary mx-auto rounded-full"></div>
                 </div>
-                <div class="grid grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center px-4">
+                <div class="grid grid-cols-3 md:grid-cols-5 gap-4 md:gap-8 items-center justify-items-center px-2">
                     <img src="https://i.postimg.cc/t1LVg3DN/Logo-Scom-01.png" alt="Scommerce" class="logo-item">
                     <img src="https://i.postimg.cc/phz55m14/GHN-Logo-2022.png" alt="Giao Hàng Nhanh" class="logo-item">
                     <img src="https://i.postimg.cc/ZBpvvWM6/logo-ghn-logistics-01.png" alt="Giao Hàng Nặng" class="logo-item">
@@ -206,134 +210,127 @@
 
         <!-- TRANG QUYỀN LỢI -->
         <div id="page-benefits" class="page-content flex-col gap-8">
-            <div class="space-y-2">
-                <h2 class="text-3xl font-black text-[#2D241F]">Chi tiết Quyền lợi Bảo hiểm</h2>
-                <p class="text-on-surface-variant font-medium text-sm">Hạn mức tóm tắt dựa trên chính sách 2026.</p>
+            <div class="space-y-2 px-2 sm:px-0">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#2D241F]">Chi tiết Quyền lợi Bảo hiểm</h2>
+                <p class="text-on-surface-variant font-medium text-xs sm:text-sm">Hạn mức tóm tắt dựa trên chính sách 2026.</p>
             </div>
             
-            <div class="flex flex-wrap gap-2 md:gap-3 my-2 justify-start overflow-x-auto pb-2 md:pb-0">
-                <button onclick="selectProgram(1)" id="btn-ct1" class="program-btn active px-4 md:px-6 py-3 rounded-xl border border-outline-variant font-black text-[10px] md:text-sm uppercase tracking-widest whitespace-nowrap">Chương trình 1</button>
-                <button onclick="selectProgram(2)" id="btn-ct2" class="program-btn px-4 md:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] md:text-sm uppercase tracking-widest whitespace-nowrap">Chương trình 2</button>
-                <button onclick="selectProgram(3)" id="btn-ct3" class="program-btn px-4 md:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] md:text-sm uppercase tracking-widest whitespace-nowrap">Chương trình 3</button>
-                <button onclick="selectProgram(4)" id="btn-ct4" class="program-btn px-4 md:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] md:text-sm uppercase tracking-widest whitespace-nowrap">Chương trình 4</button>
-                <button onclick="selectProgram(5)" id="btn-ct5" class="program-btn px-4 md:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] md:text-sm uppercase tracking-widest whitespace-nowrap">Chương trình 5</button>
+            <!-- Tối ưu hóa các nút Chương trình thành dạng Grid cân xứng trên mobile, Flex trên desktop -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:flex md:flex-wrap gap-2 md:gap-3 my-2 px-2 sm:px-0">
+                <button onclick="selectProgram(1)" id="btn-ct1" class="program-btn active px-2 sm:px-6 py-3 rounded-xl border border-outline-variant font-black text-[10px] sm:text-sm uppercase tracking-widest text-center min-h-[44px]">Chương trình 1</button>
+                <button onclick="selectProgram(2)" id="btn-ct2" class="program-btn px-2 sm:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] sm:text-sm uppercase tracking-widest text-center min-h-[44px]">Chương trình 2</button>
+                <button onclick="selectProgram(3)" id="btn-ct3" class="program-btn px-2 sm:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] sm:text-sm uppercase tracking-widest text-center min-h-[44px]">Chương trình 3</button>
+                <button onclick="selectProgram(4)" id="btn-ct4" class="program-btn px-2 sm:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] sm:text-sm uppercase tracking-widest text-center min-h-[44px]">Chương trình 4</button>
+                <button onclick="selectProgram(5)" id="btn-ct5" class="program-btn px-2 sm:px-6 py-3 rounded-xl border border-outline-variant text-on-surface-variant font-black text-[10px] sm:text-sm uppercase tracking-widest text-center min-h-[44px] col-span-2 sm:col-span-1">Chương trình 5</button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="md:col-span-2 bg-lightblue text-white rounded-[32px] p-8 md:p-10 benefit-card flex flex-col justify-center min-h-[220px] text-left">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-14 h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-3xl">🏥</div>
-                        <h3 class="font-black text-2xl uppercase tracking-tight">Nội trú</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-2 sm:px-0">
+                <div class="md:col-span-2 bg-lightblue text-white rounded-[28px] md:rounded-[32px] p-6 sm:p-10 benefit-card flex flex-col justify-center min-h-[180px] md:min-h-[220px] text-left">
+                    <div class="flex items-center gap-3 sm:gap-4 mb-4">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-2xl sm:text-3xl shrink-0">🏥</div>
+                        <h3 class="font-black text-lg sm:text-2xl uppercase tracking-tight">Nội trú</h3>
                     </div>
                     <div>
-                        <p class="text-4xl md:text-6xl font-black tracking-tighter" id="val-noitru">80.000.000đ</p>
-                        <p class="text-white/80 text-[10px] md:text-xs font-black uppercase tracking-[0.25em] mt-3">Tổng hạn mức / năm</p>
+                        <p class="text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter" id="val-noitru">80.000.000đ</p>
+                        <p class="text-white/80 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] mt-2">Tổng hạn mức / năm</p>
                     </div>
                 </div>
 
-                <div class="bg-secondary text-white rounded-[32px] p-8 md:p-10 benefit-card flex flex-col justify-center text-left">
-                    <div class="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-2xl mb-4">💊</div>
+                <div class="bg-secondary text-white rounded-[28px] md:rounded-[32px] p-6 sm:p-10 benefit-card flex flex-col justify-center min-h-[160px] md:min-h-[200px] text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center text-xl sm:text-2xl mb-4 shrink-0">💊</div>
                     <div class="flex flex-col">
-                        <h3 class="font-black text-xl md:text-2xl uppercase mb-2">Ngoại trú</h3>
-                        <p class="text-3xl font-black" id="val-ngoaitru">8.000.000đ</p>
-                        <p class="text-white/50 text-[9px] font-black uppercase tracking-widest mt-2">Hạn mức / năm</p>
+                        <h3 class="font-black text-lg sm:text-xl uppercase mb-1">Ngoại trú</h3>
+                        <p class="text-2xl sm:text-3xl font-black" id="val-ngoaitru">8.000.000đ</p>
+                        <p class="text-white/50 text-[9px] font-black uppercase tracking-widest mt-1">Hạn mức / năm</p>
                     </div>
                 </div>
 
-                <div class="bg-soft-orange rounded-[32px] p-8 md:p-10 benefit-card border border-primary/10 flex flex-col justify-center text-left">
-                    <div class="w-12 h-12 bg-white text-primary rounded-xl flex items-center justify-center mb-4 text-2xl shadow-sm">🤰</div>
+                <div class="bg-soft-orange rounded-[28px] md:rounded-[32px] p-6 sm:p-10 benefit-card border border-primary/10 flex flex-col justify-center min-h-[160px] text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white text-primary rounded-xl flex items-center justify-center mb-4 text-xl sm:text-2xl shadow-sm shrink-0">🤰</div>
                     <div class="flex flex-col">
-                        <h4 class="font-black text-primary uppercase text-xl md:text-2xl mb-2">Thai sản</h4>
-                        <p class="text-3xl font-black text-secondary" id="val-maternity">20.000.000đ</p>
+                        <h4 class="font-black text-primary uppercase text-lg sm:text-xl mb-1">Thai sản</h4>
+                        <p class="text-2xl sm:text-3xl font-black text-secondary" id="val-maternity">20.000.000đ</p>
                     </div>
                 </div>
 
-                <div class="bg-soft-blue rounded-[32px] p-8 md:p-10 benefit-card border border-lightblue/20 flex flex-col justify-center text-left">
-                    <div class="w-12 h-12 bg-white text-lightblue rounded-xl flex items-center justify-center mb-4 text-2xl shadow-sm">🦷</div>
+                <div class="bg-soft-blue rounded-[28px] md:rounded-[32px] p-6 sm:p-10 benefit-card border border-lightblue/20 flex flex-col justify-center min-h-[160px] text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white text-lightblue rounded-xl flex items-center justify-center mb-4 text-xl sm:text-2xl shadow-sm shrink-0">🦷</div>
                     <div class="flex flex-col">
-                        <h4 class="font-black text-lightblue uppercase text-xl md:text-2xl mb-2">Nha khoa</h4>
-                        <p class="text-3xl font-black text-secondary" id="val-nhakhoa">2.000.000đ</p>
+                        <h4 class="font-black text-lightblue uppercase text-lg sm:text-xl mb-1">Nha khoa</h4>
+                        <p class="text-2xl sm:text-3xl font-black text-secondary" id="val-nhakhoa">2.000.000đ</p>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-[32px] p-8 md:p-10 benefit-card border border-gray-100 flex flex-col justify-center text-left">
-                    <div class="w-12 h-12 bg-gray-50 text-secondary rounded-xl flex items-center justify-center mb-4 text-2xl shadow-sm">🧘</div>
+                <div class="bg-white rounded-[28px] md:rounded-[32px] p-6 sm:p-10 benefit-card border border-gray-100 flex flex-col justify-center min-h-[160px] text-left">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gray-50 text-secondary rounded-xl flex items-center justify-center mb-4 text-xl sm:text-2xl shadow-sm shrink-0">🧘</div>
                     <div class="flex flex-col">
-                        <h4 class="font-black text-gray-400 uppercase text-xl md:text-2xl mb-2">Vật lý trị liệu</h4>
+                        <h4 class="font-black text-gray-400 uppercase text-lg sm:text-xl mb-1">Vật lý trị liệu</h4>
                         <div class="flex items-baseline gap-1">
-                            <p class="text-3xl font-black text-secondary" id="val-physio">160.000đ</p>
-                            <span class="text-gray-400 font-bold text-sm">/ lần</span>
+                            <p class="text-2xl sm:text-3xl font-black text-secondary" id="val-physio">160.000đ</p>
+                            <span class="text-gray-400 font-bold text-xs">/ lần</span>
                         </div>
-                        <p class="text-gray-400 text-[10px] font-black uppercase tracking-widest mt-2">Tối đa 60 lần / năm</p>
                     </div>
                 </div>
             </div>
             
-            <div class="mt-4 flex justify-center">
-                <a id="program-detail-link" href="https://drive.google.com/file/d/178yywzbkgXYpI4zRCgQFC77mu-617Nr4/preview?usp=drive_link" target="_blank" class="bg-white text-secondary border-2 border-secondary/10 px-10 py-4 rounded-2xl font-black text-xs hover:bg-secondary hover:text-white transition-all shadow-xl shadow-gray-100 flex items-center gap-3 group">
-                    <span class="uppercase tracking-widest">Chi tiết Chương trình 1</span>
-                    <svg class="group-hover:translate-y-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+            <div class="mt-4 flex justify-center px-4 sm:px-0">
+                <a id="program-detail-link" href="https://drive.google.com/file/d/178yywzbkgXYpI4zRCgQFC77mu-617Nr4/preview" target="_blank" class="w-full sm:w-auto bg-white text-secondary border-2 border-secondary/10 px-8 py-4 rounded-2xl font-black text-xs hover:bg-secondary hover:text-white transition-all shadow-md flex items-center justify-center gap-3 group min-h-[48px]">
+                    <span class="uppercase tracking-widest text-center">Chi tiết Chương trình 1</span>
+                    <svg class="group-hover:translate-x-1 transition-transform shrink-0" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
             </div>
         </div>
 
         <!-- HƯỚNG DẪN -->
         <div id="page-guide" class="page-content flex-col gap-10">
-            <h2 class="text-3xl font-black text-[#2D241F]">Hướng dẫn bồi thường</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <h2 class="text-2xl sm:text-3xl font-black text-[#2D241F] px-2 sm:px-0">Hướng dẫn bồi thường</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-2 sm:px-0">
                 <div class="space-y-6">
-                    <div class="p-6 bg-white rounded-2xl border border-outline-variant flex gap-4 items-start shadow-sm">
+                    <div class="p-5 sm:p-6 bg-white rounded-2xl border border-outline-variant flex gap-4 items-start shadow-sm">
                         <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-black shrink-0">1</span>
                         <div>
-                            <h4 class="font-bold mb-1">Khám bệnh & Thu thập hồ sơ</h4>
-                            <p class="text-sm text-on-surface-variant">Lấy hóa đơn tài chính (VAT), bảng kê viện phí, đơn thuốc và các kết quả xét nghiệm.</p>
+                            <h4 class="font-bold text-sm sm:text-base mb-1">Khám bệnh & Thu thập hồ sơ</h4>
+                            <p class="text-xs sm:text-sm text-on-surface-variant">Lấy hóa đơn tài chính (VAT), bảng kê viện phí, đơn thuốc và các kết quả xét nghiệm.</p>
                         </div>
                     </div>
-                    <div class="p-6 bg-white rounded-2xl border border-outline-variant flex gap-4 items-start shadow-sm">
+                    <div class="p-5 sm:p-6 bg-white rounded-2xl border border-outline-variant flex gap-4 items-start shadow-sm">
                         <span class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-black shrink-0">2</span>
                         <div>
-                            <h4 class="font-bold mb-1">Nộp hồ sơ trực tuyến (Genvita)</h4>
-                            <p class="text-sm text-on-surface-variant mb-3">Sử dụng ứng dụng Genvita của Generali để upload hồ sơ bồi thường nhanh chóng.</p>
-                            <a href="https://drive.google.com/file/d/1JqsJQka7W5BGG0K2keh1hRjXVBhjVl76/view" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
+                            <h4 class="font-bold text-sm sm:text-base mb-1">Nộp hồ sơ trực tuyến (Genvita)</h4>
+                            <p class="text-xs sm:text-sm text-on-surface-variant mb-3">Sử dụng ứng dụng **Genvita** của Generali để upload hồ sơ bồi thường nhanh chóng.</p>
+                            <a href="https://drive.google.com/file/d/1JqsJQka7W5BGG0K2keh1hRjXVBhjVl76/preview" target="_blank" class="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline">
                                 📁 HD cài đặt & sử dụng Genvita
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="bg-secondary rounded-3xl p-10 text-white flex flex-col items-center text-center shadow-xl">
-                    <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-2xl">📥</div>
+                <div class="bg-secondary rounded-[28px] p-8 sm:p-10 text-white flex flex-col items-center text-center shadow-md justify-center">
+                    <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-2xl shrink-0">📥</div>
                     <h3 class="text-xl font-black mb-2 uppercase">Biểu mẫu hồ sơ</h3>
-                    <p class="text-white/60 text-sm mb-8">Tải xuống các mẫu giấy tờ cần thiết từ thư mục dùng chung (Drive).</p>
-                    <a href="https://drive.google.com/drive/folders/1up9jzSO5pZYXqXcH8-HDCACJGnVs6zgX?usp=sharing" target="_blank" class="bg-white text-secondary px-8 py-4 rounded-2xl font-black uppercase text-xs hover:bg-gray-100 transition-colors inline-block tracking-widest shadow-lg">Đến thư mục Drive</a>
+                    <p class="text-white/60 text-xs sm:text-sm mb-8">Tải xuống các mẫu giấy tờ cần thiết từ thư mục dùng chung (Drive).</p>
+                    <a href="https://drive.google.com/drive/folders/1up9jzSO5pZYXqXcH8-HDCACJGnVs6zgX?usp=sharing" target="_blank" class="w-full sm:w-auto bg-white text-secondary px-8 py-4 rounded-2xl font-black uppercase text-xs hover:bg-gray-100 transition-colors inline-block tracking-widest shadow-md text-center min-h-[48px] flex items-center justify-center">Đến thư mục Drive</a>
                 </div>
             </div>
         </div>
 
         <!-- HỎI ĐÁP -->
         <div id="page-faq" class="page-content flex-col gap-16">
-            
-            <!-- Hộp FAQ được mở rộng toàn bộ chiều ngang -->
-            <div class="space-y-6 w-full overflow-hidden">
+            <div class="space-y-6 w-full overflow-hidden px-2 sm:px-0">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <h2 class="text-3xl font-black text-[#2D241F]">Câu hỏi thường gặp</h2>
-                    
-                    <!-- Nút lọc danh mục chuẩn UI -->
+                    <h2 class="text-2xl sm:text-3xl font-black text-[#2D241F]">Câu hỏi thường gặp</h2>
                     <div class="relative shrink-0 w-full sm:w-64">
-                        <select id="faq-category-select" onchange="filterFAQsByCategory(this.value)" class="w-full bg-white border border-outline-variant rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-primary/20 appearance-none font-bold text-secondary">
+                        <select id="faq-category-select" onchange="filterFAQsByCategory(this.value)" class="w-full bg-white border border-outline-variant rounded-2xl px-5 py-3.5 text-sm focus:ring-2 focus:ring-primary/20 appearance-none font-bold text-secondary">
                             <option value="all">Tất cả danh mục</option>
                         </select>
                     </div>
                 </div>
                 
                 <div class="relative w-full">
-                    <!-- Thẻ trượt ngang, scroll-snap giúp bám khung mượt màng -->
                     <div id="faq-container" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar pb-4 -mx-4 px-4 md:mx-0 md:px-0">
                         <div class="p-6 bg-white border border-outline-variant rounded-2xl text-center text-sm text-gray-400 w-full">
                             Đang tải câu hỏi thường gặp...
                         </div>
                     </div>
-                    
-                    <!-- Chỉ báo vuốt ngang sinh động -->
                     <div id="faq-hint" class="hidden flex items-center justify-start mt-2 text-xs text-on-surface-variant font-bold px-1">
                          <span class="flex items-center gap-1 text-primary">
                              Vuốt sang phải để xem thêm 
@@ -345,42 +342,40 @@
                 </div>
             </div>
 
-            <!-- Khu vực Form đối xứng ở cuối trang -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-10 border-t border-outline-variant/30">
-                <!-- Cột trái: Form Thu Thập Feedback Truyền Thông BHSK -->
-                <div class="bg-white rounded-[32px] p-8 border border-outline-variant shadow-sm h-fit">
-                    <h3 class="text-xl font-black mb-6 flex items-center gap-2 text-secondary">
+            <!-- Các form đối xứng cuối trang -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-10 border-t border-outline-variant/30 px-2 sm:px-0">
+                <div class="bg-white rounded-[28px] md:rounded-[32px] p-6 sm:p-8 border border-outline-variant shadow-sm h-fit">
+                    <h3 class="text-lg sm:text-xl font-black mb-6 flex items-center gap-2 text-secondary">
                         <span class="text-primary">●</span> Đóng góp ý kiến về truyền thông BHSK
                     </h3>
                     <form id="feedback-form" class="space-y-4">
                         <div>
-                            <label class="block text-xs font-black uppercase text-on-surface-variant mb-2 ml-1">Mức độ dễ hiểu và tiếp cận thông tin BHSK</label>
-                            <div class="flex gap-4 my-2 justify-center bg-background p-4 rounded-2xl border border-dashed border-outline-variant">
-                                <button type="button" onclick="setRating(1)" class="star-btn text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
-                                <button type="button" onclick="setRating(2)" class="star-btn text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
-                                <button type="button" onclick="setRating(3)" class="star-btn text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
-                                <button type="button" onclick="setRating(4)" class="star-btn text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
-                                <button type="button" onclick="setRating(5)" class="star-btn text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
+                            <label class="block text-[10px] sm:text-xs font-black uppercase text-on-surface-variant mb-2 ml-1">Mức độ dễ hiểu và tiếp cận thông tin BHSK</label>
+                            <div class="flex gap-3 sm:gap-4 my-2 justify-center bg-background p-4 rounded-2xl border border-dashed border-outline-variant">
+                                <button type="button" onclick="setRating(1)" class="star-btn text-xl sm:text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
+                                <button type="button" onclick="setRating(2)" class="star-btn text-xl sm:text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
+                                <button type="button" onclick="setRating(3)" class="star-btn text-xl sm:text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
+                                <button type="button" onclick="setRating(4)" class="star-btn text-xl sm:text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
+                                <button type="button" onclick="setRating(5)" class="star-btn text-xl sm:text-2xl text-gray-300 hover:scale-110 transition-transform">⭐</button>
                             </div>
                             <input type="hidden" name="rating" id="feedback-rating" value="" required>
                         </div>
                         <div>
-                            <label class="block text-xs font-black uppercase text-on-surface-variant mb-1.5 ml-1">Ý kiến / Đề xuất của bạn về truyền thông</label>
+                            <label class="block text-[10px] sm:text-xs font-black uppercase text-on-surface-variant mb-1.5 ml-1">Ý kiến / Đề xuất của bạn về truyền thông</label>
                             <textarea name="feedback_message" rows="4" placeholder="Ví dụ: Bạn muốn HR làm video ngắn hướng dẫn bồi thường, thêm cẩm nang bỏ túi,..." class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm" required></textarea>
                         </div>
-                        <button type="submit" id="feedback-submit-btn" class="w-full bg-secondary text-white py-4 rounded-2xl font-black shadow-lg hover:brightness-110 transition-all uppercase tracking-wider text-sm">Gửi phản hồi</button>
+                        <button type="submit" id="feedback-submit-btn" class="w-full bg-secondary text-white py-4 rounded-2xl font-black shadow-md hover:brightness-110 transition-all uppercase tracking-wider text-xs sm:text-sm min-h-[48px]">Gửi phản hồi</button>
                     </form>
                     <p id="feedback-form-message" class="hidden mt-4 text-center text-sm font-bold text-green-600"></p>
                 </div>
 
-                <!-- Cột phải: Form Gửi thắc mắc cho HR -->
-                <div class="bg-white rounded-[32px] p-8 border border-outline-variant shadow-sm h-fit">
-                    <h3 class="text-xl font-black mb-6 flex items-center gap-2 text-secondary">
+                <div class="bg-white rounded-[28px] md:rounded-[32px] p-6 sm:p-8 border border-outline-variant shadow-sm h-fit">
+                    <h3 class="text-lg sm:text-xl font-black mb-6 flex items-center gap-2 text-secondary">
                         <span class="text-primary">●</span> Gửi câu hỏi cho chúng tôi
                     </h3>
                     <form id="qa-form" class="space-y-4">
                         <input type="text" name="name" placeholder="Họ và tên" class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm" required>
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <input type="text" name="employeeId" placeholder="Mã nhân viên" class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm" required>
                             <select name="company" class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm appearance-none" required>
                                 <option value="" disabled selected>Chọn đơn vị...</option>
@@ -392,54 +387,51 @@
                                 <option value="Gido">Gido</option>
                             </select>
                         </div>
-                        
-                        <!-- Thêm trường nhập liệu Telegram (Không bắt buộc) -->
-                        <input type="text" name="telegram" placeholder="Tài khoản Telegram - VD: @TenTelegram" class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm">
-                        
+                        <input type="text" name="telegram" placeholder="Tài khoản Telegram (Không bắt buộc) - Ví dụ: @TenTelegram" class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm">
                         <textarea name="message" rows="4" placeholder="Nhập thắc mắc của bạn tại đây..." class="w-full bg-background border-none rounded-2xl px-5 py-3.5 focus:ring-2 focus:ring-primary/20 text-sm" required></textarea>
-                        <button type="submit" id="submit-btn" class="w-full bg-primary text-white py-4 rounded-2xl font-black shadow-lg shadow-orange-100 hover:brightness-110 transition-all uppercase tracking-wider text-sm">Gửi thắc mắc</button>
+                        <button type="submit" id="submit-btn" class="w-full bg-primary text-white py-4 rounded-2xl font-black shadow-lg shadow-orange-100 hover:brightness-110 transition-all uppercase tracking-wider text-xs sm:text-sm min-h-[48px]">Gửi thắc mắc</button>
                     </form>
                     <p id="form-message" class="hidden mt-4 text-center text-sm font-bold text-green-600"></p>
                 </div>
             </div>
 
             <!-- THÔNG TIN LIÊN HỆ GENERALI -->
-            <section class="bg-blue-50/50 rounded-[40px] p-8 md:p-12 border border-blue-100/50">
-                <div class="flex flex-col md:flex-row gap-12">
-                    <div class="md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left border-b md:border-b-0 md:border-r border-blue-200/50 pb-8 md:pb-0 md:pr-12">
-                        <div class="w-20 h-20 bg-secondary text-white rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-xl shadow-blue-200">📞</div>
-                        <h3 class="text-3xl font-black text-secondary leading-tight uppercase">Thông tin <br class="hidden md:inline"> liên hệ</h3>
+            <section class="bg-blue-50/50 rounded-[28px] md:rounded-[40px] p-6 sm:p-10 border border-blue-100/50 px-4 sm:px-10">
+                <div class="flex flex-col md:flex-row gap-8 md:gap-12">
+                    <div class="md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left border-b md:border-b-0 md:border-r border-blue-200/50 pb-6 md:pb-0 md:pr-12">
+                        <div class="w-16 h-16 bg-secondary text-white rounded-2xl flex items-center justify-center text-3xl mb-4 shadow-md shrink-0">📞</div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-secondary leading-tight uppercase">Thông tin <br class="hidden md:inline"> liên hệ</h3>
                     </div>
                     
-                    <div class="md:w-2/3 grid grid-cols-1 gap-10">
-                        <div class="flex gap-6 items-start">
-                            <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shrink-0 shadow-lg">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <div class="md:w-2/3 grid grid-cols-1 gap-8 sm:gap-10">
+                        <div class="flex gap-4 sm:gap-6 items-start">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-400 rounded-full flex items-center justify-center shrink-0 shadow-sm text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                             </div>
                             <div class="space-y-1">
-                                <h4 class="font-bold text-lg text-on-surface">Tư vấn quyền lợi bảo hiểm</h4>
-                                <p class="text-2xl font-black text-red-600">1900 9696 75</p>
+                                <h4 class="font-bold text-base sm:text-lg text-on-surface">Tư vấn quyền lợi bảo hiểm</h4>
+                                <p class="text-xl sm:text-2xl font-black text-red-600">1900 9696 75</p>
                                 <div class="mt-4 pt-4 border-t border-blue-100 space-y-1">
-                                    <p class="font-black text-secondary uppercase text-sm">BÙI MINH TÂM – Account Manager</p>
-                                    <p class="text-sm">Phone: <span class="font-bold">035.4613.229</span></p>
-                                    <p class="text-sm">Email: <span class="font-bold text-secondary">tam.bui.m@generali-life.com.vn</span></p>
+                                    <p class="font-black text-secondary uppercase text-xs sm:text-sm">BÙI MINH TÂM – Account Manager</p>
+                                    <p class="text-xs sm:text-sm">Phone: <span class="font-bold">035.4613.229</span></p>
+                                    <p class="text-xs sm:text-sm">Email: <span class="font-bold text-secondary break-all">tam.bui.m@generali-life.com.vn</span></p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="flex gap-6 items-start">
-                            <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center shrink-0 shadow-lg text-white text-2xl">✉</div>
+                        <div class="flex gap-4 sm:gap-6 items-start">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-teal-600 rounded-full flex items-center justify-center shrink-0 shadow-sm text-white text-xl">✉</div>
                             <div class="space-y-1">
-                                <h4 class="font-bold text-lg text-on-surface">Giải đáp hồ sơ Bồi Thường</h4>
-                                <p class="text-secondary font-black text-lg">eb-claims@generali-life.com.vn</p>
+                                <h4 class="font-bold text-base sm:text-lg text-on-surface">Giải đáp hồ sơ Bồi Thường</h4>
+                                <p class="text-secondary font-black text-base sm:text-lg break-all">eb-claims@generali-life.com.vn</p>
                             </div>
                         </div>
 
-                        <div class="flex gap-6 items-start">
-                            <div class="w-12 h-12 bg-orange-600/80 rounded-full flex items-center justify-center shrink-0 shadow-lg text-white text-2xl">📍</div>
+                        <div class="flex gap-4 sm:gap-6 items-start">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-600/80 rounded-full flex items-center justify-center shrink-0 shadow-sm text-white text-xl">📍</div>
                             <div class="space-y-2">
-                                <h4 class="font-bold text-lg text-on-surface">Địa chỉ gửi hồ sơ giấy về Generali</h4>
-                                <div class="bg-white/60 p-4 rounded-2xl text-sm leading-relaxed text-on-surface-variant border border-blue-100">
+                                <h4 class="font-bold text-base sm:text-lg text-on-surface">Địa chỉ gửi hồ sơ giấy về Generali</h4>
+                                <div class="bg-white/60 p-4 rounded-2xl text-xs sm:text-sm leading-relaxed text-on-surface-variant border border-blue-100">
                                     <p class="font-bold text-secondary mb-1">Phòng Giải quyết quyền lợi Bảo hiểm Nhóm</p>
                                     <p>Tầng 2, Generali Plaza, 43–45 Tú Xương, Phường Võ Thị Sáu, Quận 3, TP.HCM</p>
                                 </div>
@@ -461,11 +453,11 @@
 
     <script>
         const programData = {
-            1: { ngoaitru: "8.000.000đ", noitru: "80.000.000đ", maternity: "20.000.000đ", nhakhoa: "2.000.000đ", physio: "160.000đ", link: "https://drive.google.com/file/d/178yywzbkgXYpI4zRCgQFC77mu-617Nr4/preview?usp=drive_link" },
-            2: { ngoaitru: "10.000.000đ", noitru: "100.000.000đ", maternity: "30.000.000đ", nhakhoa: "2.000.000đ", physio: "200.000đ", link: "https://drive.google.com/file/d/1m8w41_bpXZ0IHZxI5uljEAwvz1MN_H-I/preview?usp=drive_link" },
-            3: { ngoaitru: "12.000.000đ", noitru: "120.000.000đ", maternity: "40.000.000đ", nhakhoa: "3.000.000đ", physio: "240.000đ", link: "https://drive.google.com/file/d/1lUXfHaX0oUrkoDlaPkb5FsH-X9EBJ5B9/preview?usp=drive_link" },
-            4: { ngoaitru: "15.000.000đ", noitru: "150.000.000đ", maternity: "50.000.000đ", nhakhoa: "4.000.000đ", physio: "300.000đ", link: "https://drive.google.com/file/d/1oy_NbnKpbYA2tZhGjHBB7PfPGUIZFsSF/preview?usp=drive_link" },
-            5: { ngoaitru: "25.000.000đ", noitru: "250.000.000đ", maternity: "60.000.000đ", nhakhoa: "5.000.000đ", physio: "500.000đ", link: "https://drive.google.com/file/d/1_EU0mX4F_qUPFc8uMMNcrbPGVbgrksJV/preview?usp=drive_link" }
+            1: { ngoaitru: "8.000.000đ", noitru: "80.000.000đ", maternity: "20.000.000đ", nhakhoa: "2.000.000đ", physio: "160.000đ", link: "https://drive.google.com/file/d/178yywzbkgXYpI4zRCgQFC77mu-617Nr4/preview" },
+            2: { ngoaitru: "10.000.000đ", noitru: "100.000.000đ", maternity: "30.000.000đ", nhakhoa: "2.000.000đ", physio: "200.000đ", link: "https://drive.google.com/file/d/1m8w41_bpXZ0IHZxI5uljEAwvz1MN_H-I/preview" },
+            3: { ngoaitru: "12.000.000đ", noitru: "120.000.000đ", maternity: "40.000.000đ", nhakhoa: "3.000.000đ", physio: "240.000đ", link: "https://drive.google.com/file/d/1lUXfHaX0oUrkoDlaPkb5FsH-X9EBJ5B9/preview" },
+            4: { ngoaitru: "15.000.000đ", noitru: "150.000.000đ", maternity: "50.000.000đ", nhakhoa: "4.000.000đ", physio: "300.000đ", link: "https://drive.google.com/file/d/1oy_NbnKpbYA2tZhGjHBB7PfPGUIZFsSF/preview" },
+            5: { ngoaitru: "25.000.000đ", noitru: "250.000.000đ", maternity: "60.000.000đ", nhakhoa: "5.000.000đ", physio: "500.000đ", link: "https://drive.google.com/file/d/1_EU0mX4F_qUPFc8uMMNcrbPGVbgrksJV/preview" }
         };
 
         function selectProgram(id) {
@@ -480,7 +472,7 @@
                 document.getElementById('val-physio').innerText = data.physio;
                 const detailLink = document.getElementById('program-detail-link');
                 detailLink.href = data.link;
-                detailLink.querySelector('span').innerText = "Chi tiết chương trình " + id;
+                detailLink.querySelector('span').innerText = "Chi tiết Chương trình " + id;
             }
         }
 
@@ -501,7 +493,6 @@
         // --- CẤU HÌNH ĐƯỜNG DẪN APPS SCRIPT ---
         const scriptURL = 'https://script.google.com/macros/s/AKfycby6PlOBJxirQjgjmPiXKmvcgf5Al4T2WEmiZTgqjZQ-aLBsszeXt9cYnziA7zq7QWq8/exec'; 
 
-        // Biến lưu trữ toàn bộ FAQs sau khi fetch về để lọc không cần gọi API nhiều lần
         let loadedFAQs = [];
 
         // --- TỰ ĐỘNG TẢI DANH SÁCH FAQ TỪ GOOGLE SHEETS ---
@@ -517,7 +508,6 @@
             faqContainer.innerHTML = `<div class="p-6 bg-white border border-outline-variant rounded-2xl text-center text-sm text-gray-400 w-full">Đang tải câu hỏi thường gặp...</div>`;
             if (faqHint) faqHint.classList.add('hidden');
 
-            // Gọi lệnh lấy FAQ từ Sheet
             fetch(`${scriptURL}?action=getFAQs`)
                 .then(response => {
                     if (response.redirected && response.url.includes('accounts.google.com')) {
@@ -529,12 +519,8 @@
                     return response.json();
                 })
                 .then(faqs => {
-                    loadedFAQs = faqs; // Lưu trữ danh sách gốc
-                    
-                    // Tạo danh mục thả xuống động
+                    loadedFAQs = faqs; 
                     populateCategories(faqs);
-
-                    // Render toàn bộ FAQs ban đầu
                     renderFAQs(faqs);
                 })
                 .catch(err => {
@@ -563,16 +549,10 @@
                 });
         }
 
-        // Tạo các option động cho Dropdown từ dữ liệu Google Sheet
         function populateCategories(faqs) {
             const categorySelect = document.getElementById('faq-category-select');
-            
-            // Lấy danh sách các danh mục duy nhất
             const categories = [...new Set(faqs.map(faq => faq.category || "Khác"))];
-            
-            // Xóa hết các option cũ ngoại trừ option "Tất cả danh mục"
             categorySelect.innerHTML = '<option value="all">Tất cả danh mục</option>';
-            
             categories.forEach(cat => {
                 const opt = document.createElement('option');
                 opt.value = cat;
@@ -581,7 +561,6 @@
             });
         }
 
-        // Hàm lọc danh mục khi người dùng thay đổi select option
         function filterFAQsByCategory(selectedCategory) {
             if (selectedCategory === "all") {
                 renderFAQs(loadedFAQs);
@@ -591,7 +570,6 @@
             }
         }
 
-        // Hàm hiển thị danh sách FAQ ra màn hình (Sửa đổi: Chỉ hiện câu hỏi, bấm nút mới trượt đáp án, đổi màu rõ dễ đọc)
         function renderFAQs(faqs) {
             const faqContainer = document.getElementById('faq-container');
             const faqHint = document.getElementById('faq-hint');
@@ -605,25 +583,22 @@
             let htmlContent = '';
             faqs.forEach((faq, index) => {
                 htmlContent += `
-                    <div class="flex-shrink-0 w-[290px] sm:w-[320px] md:w-[340px] bg-white border border-outline-variant rounded-[24px] p-6 shadow-sm snap-start flex flex-col min-h-[160px] justify-between transition-all hover:border-primary/40 duration-300">
+                    <div class="flex-shrink-0 w-[280px] sm:w-[320px] md:w-[340px] bg-white border border-outline-variant rounded-[24px] p-5 sm:p-6 shadow-sm snap-center flex flex-col min-h-[160px] justify-between transition-all hover:border-primary/40 duration-300">
                         <div class="flex flex-col h-full justify-between w-full">
                             <div class="w-full">
                                 <div class="flex items-center justify-between gap-2 mb-3">
                                     <span class="bg-orange-50 text-primary text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">${faq.category || "Khác"}</span>
                                 </div>
-                                <!-- Bỏ emoji 🤔, đổi màu chữ câu hỏi sang xám đen đậm text-slate-800 dễ đọc -->
                                 <h4 class="font-black text-slate-800 text-sm md:text-base leading-snug">${faq.question}</h4>
                             </div>
                             
-                            <!-- Toggle Button & Expandable Answer Container (Tối ưu màu chữ) -->
                             <div class="mt-4 border-t border-dashed border-outline-variant/60 pt-3">
-                                <button onclick="toggleAnswer(${index})" class="flex items-center justify-between w-full text-xs font-bold text-primary hover:text-secondary transition-colors focus:outline-none">
+                                <button onclick="toggleAnswer(${index})" class="flex items-center justify-between w-full text-xs font-bold text-primary hover:text-secondary transition-colors focus:outline-none min-h-[32px]">
                                     <span id="toggle-text-${index}">Xem câu trả lời</span>
                                     <svg id="toggle-icon-${index}" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                                     </svg>
                                 </button>
-                                <!-- Đổi màu câu trả lời sang xám vừa text-slate-650 và bỏ in nghiêng để cực kỳ rõ nét -->
                                 <div id="answer-container-${index}" class="hidden mt-3 text-slate-600 font-semibold text-xs md:text-sm leading-relaxed transition-all duration-300 max-h-[120px] overflow-y-auto no-scrollbar">
                                     ${faq.answer}
                                 </div>
@@ -634,7 +609,6 @@
             });
             faqContainer.innerHTML = htmlContent;
             
-            // Hiển thị hint vuốt ngang nếu có nhiều hơn 1 câu hỏi (Bỏ bộ đếm)
             if (faqHint) {
                 if (faqs.length > 1) {
                     faqHint.classList.remove('hidden');
@@ -644,7 +618,6 @@
             }
         }
 
-        // Hàm xử lý đóng mở câu trả lời
         window.toggleAnswer = function(index) {
             const answerCont = document.getElementById(`answer-container-${index}`);
             const toggleText = document.getElementById(`toggle-text-${index}`);
@@ -661,7 +634,6 @@
             }
         };
 
-        // Logic xử lý form Gửi thắc mắc cho HR (Q&A Form)
         const form = document.getElementById('qa-form');
         const submitBtn = document.getElementById('submit-btn');
         const formMsg = document.getElementById('form-message');
@@ -680,7 +652,7 @@
                 name: formData.get('name'),
                 employeeId: formData.get('employeeId'),
                 company: formData.get('company'),
-                telegram: formData.get('telegram') || '', // Gửi trường telegram (optional) sang Apps Script
+                telegram: formData.get('telegram') || '', 
                 message: formData.get('message'),
                 timestamp: new Date().toLocaleString()
             };
@@ -708,7 +680,6 @@
             });
         });
 
-        // --- LOGIC XỬ LÝ FORM FEEDBACK TRUYỀN THÔNG ---
         let currentRating = 0;
         function setRating(ratingValue) {
             currentRating = ratingValue;
