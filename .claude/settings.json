@@ -82,7 +82,16 @@
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=430,150 --screenshot=/tmp/shot/hdrm.png --virtual-time-budget=6000 \"file:///Users/annie/Downloads/scommerce-health-portal/index.html#home\")",
       "Bash(/usr/bin/grep -n \"Thuận lợi &amp; khó khăn\\\\|CHƯA ĐỦ THÔNG TIN\\\\|<!-- Danh sách cơ sở y tế BLVP -->\\\\|<!-- Thuận lợi\" index.html)",
       "Bash(/usr/bin/perl -pe 's{</body>}{<script>window.addEventListener\\(\"load\",function\\(\\){setTimeout\\(function\\(\\){var s=document.querySelectorAll\\(\"#gsec-blvp > section\"\\);s.forEach\\(function\\(x,i\\){if\\(i<2\\)x.style.display=\"none\"}\\);document.querySelector\\(\"#gsec-blvp > div\"\\).style.display=\"none\";},400\\);}\\);</script></body>}' index.html)",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1250,900 --screenshot=/tmp/shot/blvp3.png --virtual-time-budget=7000 \"file:///Users/annie/Downloads/scommerce-health-portal/_t.html#guide\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1250,900 --screenshot=/tmp/shot/blvp3.png --virtual-time-budget=7000 \"file:///Users/annie/Downloads/scommerce-health-portal/_t.html#guide\")",
+      "Bash(/usr/bin/grep -c \"icon\" index.html)",
+      "Bash(echo \"=== project dir ===\"; find /Users/annie/Downloads/scommerce-health-portal -type f \\\\\\( -iname \"*.png\" -o -iname \"*.jpg\" -o -iname \"*.jpeg\" -o -iname \"*.svg\" -o -iname \"*.webp\" -o -iname \"*.ico\" \\\\\\) -newermt \"-2 hours\" 2>/dev/null *)",
+      "Read(//Users/annie/Downloads/**)",
+      "Bash(/usr/bin/sips -g pixelWidth -g pixelHeight -g hasAlpha \"assets/EW/EW.png\")",
+      "Bash(/usr/bin/grep -E \"pixel|hasAlpha\")",
+      "Bash(/usr/bin/sips -Z 900 \"assets/EW/EW.png\" --out /tmp/ew_prev.png)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --allow-file-access-from-files --virtual-time-budget=15000 --dump-dom \"file:///tmp/ewanalyze.html\")",
+      "Bash(/usr/bin/perl -pi -e 's{const lim=Math\\\\.round\\\\\\(W\\\\*0\\\\.88\\\\\\);.*?document\\\\.title=.*?\\\\n}{ *)",
+      "Bash(open \"/Users/annie/Downloads/scommerce-health-portal/_preview-favicon/prev.html\")"
     ],
     "additionalDirectories": [
       "/tmp",
