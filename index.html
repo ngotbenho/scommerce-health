@@ -186,6 +186,105 @@
             margin-top: 3px;
         }
 
+        /* ===== Trên điện thoại ===== */
+        @media (max-width: 767px) {
+            /* Bảng ít cột: GIỮ NGUYÊN DẠNG BẢNG, chỉ thu gọn cho vừa màn hình */
+            .benefit-table.fit-sm {
+                min-width: 0 !important;
+                table-layout: auto !important;
+                width: 100%;
+            }
+            .benefit-table.fit-sm col {
+                width: auto !important;
+            }
+            .benefit-table.fit-sm th,
+            .benefit-table.fit-sm td {
+                font-size: 10.5px;
+                line-height: 1.4;
+                padding: 7px 6px;
+                word-break: break-word;
+                hyphens: auto;
+            }
+            .benefit-table.fit-sm thead th {
+                font-size: 9px;
+                letter-spacing: 0.02em;
+                padding: 7px 4px;
+            }
+            .benefit-table.fit-sm td + td,
+            .benefit-table.fit-sm th + th {
+                width: 25%;
+            }
+            .benefit-table.fit-sm ul {
+                padding-left: 12px;
+                margin-top: 4px;
+            }
+            .benefit-table.fit-sm ul li {
+                margin-top: 2px;
+            }
+            .benefit-table.fit-sm td.idx-col {
+                width: 22px;
+                padding: 7px 2px;
+                font-size: 9px;
+            }
+            /* ô gộp khi Nhân viên và Người thân cùng mức */
+            .benefit-table.fit-sm td.merged {
+                width: 50%;
+            }
+
+            /* Bảng nhiều cột (danh sách 501 cơ sở y tế): xếp dọc vì 5 cột không thể vừa */
+            .benefit-table.card-sm {
+                min-width: 0 !important;
+                table-layout: auto !important;
+            }
+            .benefit-table.card-sm,
+            .benefit-table.card-sm tbody,
+            .benefit-table.card-sm tr,
+            .benefit-table.card-sm td {
+                display: block;
+                width: auto !important;
+            }
+            .benefit-table.card-sm thead,
+            .benefit-table.card-sm col,
+            .benefit-table.card-sm tr.row-colhead,
+            .benefit-table.card-sm td.dup-col,
+            .benefit-table.card-sm td.idx-col {
+                display: none;
+            }
+            .benefit-table.card-sm tr {
+                border-bottom: 1px solid #EDE0D9;
+                padding: 14px 4px 16px;
+            }
+            .benefit-table.card-sm tr:last-child {
+                border-bottom: none;
+            }
+            .benefit-table.card-sm td {
+                border: none !important;
+                padding: 0;
+                text-align: left !important;
+            }
+            .benefit-table.card-sm td:first-child {
+                font-weight: 700;
+                color: #2D241F;
+                margin-bottom: 8px;
+            }
+            .benefit-table.card-sm td[data-label] {
+                background: #FFF8F4;
+                border-radius: 12px;
+                padding: 9px 12px;
+                margin-top: 6px;
+            }
+            .benefit-table.card-sm td[data-label]::before {
+                content: attr(data-label);
+                display: block;
+                font-size: 9.5px;
+                font-weight: 900;
+                letter-spacing: 0.09em;
+                text-transform: uppercase;
+                color: #6D5C54;
+                margin-bottom: 3px;
+            }
+        }
+
         /* ===== Trang Hướng dẫn: tab nội dung ===== */
         .guide-tab {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -734,7 +833,7 @@
                 <h3 class="text-lg sm:text-2xl font-black text-secondary uppercase tracking-tight border-l-4 border-primary pl-4">10. Cơ sở y tế Generali từ chối chi trả</h3>
                 <div class="bg-white rounded-[24px] border border-outline-variant shadow-sm overflow-hidden">
                     <div class="benefit-table-wrap">
-                        <table class="benefit-table">
+                        <table class="benefit-table fit-sm">
                             <thead>
                                 <tr>
                                     <th style="width:56px">#</th>
@@ -931,7 +1030,7 @@
 
                     <div class="bg-white rounded-[24px] border border-outline-variant shadow-sm overflow-hidden">
                         <div class="benefit-table-wrap max-h-[560px] overflow-y-auto custom-scrollbar">
-                            <table class="benefit-table blvp-table" style="min-width:1060px">
+                            <table class="benefit-table blvp-table card-sm" style="min-width:1060px">
                                 <colgroup>
                                     <col style="width:21%" /><col style="width:23%" /><col style="width:11%" /><col style="width:11%" /><col style="width:34%" />
                                 </colgroup>
@@ -1005,7 +1104,7 @@
                     <h3 class="text-lg sm:text-xl font-black text-secondary uppercase tracking-tight border-l-4 border-primary pl-4">Thời gian xử lý yêu cầu</h3>
                     <div class="bg-white rounded-[24px] border border-outline-variant shadow-sm overflow-hidden">
                         <div class="benefit-table-wrap">
-                            <table class="benefit-table">
+                            <table class="benefit-table fit-sm">
                                 <thead>
                                     <tr>
                                         <th style="text-align:left">Hồ sơ đầy đủ chứng từ hợp lệ</th>
@@ -1016,13 +1115,12 @@
                                 <tbody>
                                     <tr>
                                         <td><strong>Thông báo kết quả</strong></td>
-                                        <td>Hồ sơ dưới 50 triệu: trong vòng <strong>06 ngày làm việc</strong><br />Hồ sơ trên 50 triệu: trong vòng <strong>15 ngày làm việc</strong></td>
-                                        <td>Hồ sơ dưới 50 triệu: trong vòng <strong>10 ngày làm việc</strong><br />Hồ sơ trên 50 triệu: trong vòng <strong>15 ngày làm việc</strong></td>
+                                        <td data-label="Qua ứng dụng GenVita">Hồ sơ dưới 50 triệu: trong vòng <strong>06 ngày làm việc</strong><br />Hồ sơ trên 50 triệu: trong vòng <strong>15 ngày làm việc</strong></td>
+                                        <td data-label="Qua các hình thức khác">Hồ sơ dưới 50 triệu: trong vòng <strong>10 ngày làm việc</strong><br />Hồ sơ trên 50 triệu: trong vòng <strong>15 ngày làm việc</strong></td>
                                     </tr>
                                     <tr>
                                         <td><strong>Chuyển khoản</strong></td>
-                                        <td>Trong vòng 02 ngày làm việc tiếp theo</td>
-                                        <td>Trong vòng 02 ngày làm việc tiếp theo</td>
+                                        <td data-label="Qua ứng dụng GenVita">Trong vòng 02 ngày làm việc tiếp theo</td><td data-label="Qua các hình thức khác">Trong vòng 02 ngày làm việc tiếp theo</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1032,7 +1130,7 @@
 
                     <div class="bg-white rounded-[24px] border border-outline-variant shadow-sm overflow-hidden">
                         <div class="benefit-table-wrap">
-                            <table class="benefit-table">
+                            <table class="benefit-table fit-sm">
                                 <thead>
                                     <tr>
                                         <th style="text-align:left; width:38%">Yêu cầu bổ sung chứng từ</th>
@@ -1040,9 +1138,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr><td><strong>Yêu cầu bổ sung chứng từ</strong></td><td style="text-align:left">Trong vòng 5 ngày làm việc kể từ ngày Generali gửi thông báo nhận hồ sơ</td></tr>
-                                    <tr><td><strong>Nhắc bổ sung lần 2</strong></td><td style="text-align:left">Vào ngày thứ 15 kể từ ngày gửi Yêu cầu bổ sung đầu tiên, nếu Generali chưa nhận được chứng từ bổ sung</td></tr>
-                                    <tr><td><strong>Nhắc bổ sung lần 3 và thông báo tạm đóng</strong></td><td style="text-align:left">Vào ngày thứ 30 kể từ ngày gửi Yêu cầu bổ sung đầu tiên, đồng thời thông báo đóng Yêu cầu giải quyết quyền lợi bảo hiểm</td></tr>
+                                    <tr><td><strong>Yêu cầu bổ sung chứng từ</strong></td><td data-label="Thời gian xử lý" style="text-align:left">Trong vòng 5 ngày làm việc kể từ ngày Generali gửi thông báo nhận hồ sơ</td></tr>
+                                    <tr><td><strong>Nhắc bổ sung lần 2</strong></td><td data-label="Thời gian xử lý" style="text-align:left">Vào ngày thứ 15 kể từ ngày gửi Yêu cầu bổ sung đầu tiên, nếu Generali chưa nhận được chứng từ bổ sung</td></tr>
+                                    <tr><td><strong>Nhắc bổ sung lần 3 và thông báo tạm đóng</strong></td><td data-label="Thời gian xử lý" style="text-align:left">Vào ngày thứ 30 kể từ ngày gửi Yêu cầu bổ sung đầu tiên, đồng thời thông báo đóng Yêu cầu giải quyết quyền lợi bảo hiểm</td></tr>
                                 </tbody>
                             </table>
                         </div>
@@ -1475,7 +1573,7 @@
                     title: "Bảo hiểm Chi phí y tế do Tai nạn",
                     rows: [
                         { label: "Số tiền bảo hiểm tối đa", nv: perYear(p.accSumNV), nt: perYear(p.accSumNT), type: "total" },
-                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "subhead" },
+                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "colhead" },
                         { label: "Tiền giường và phòng mỗi Ngày nằm viện", bullets: ROOM_BULLETS, nv: perDay(p.accRoomNV), nt: perDay(p.accRoomNT) },
                         { label: "Chi phí điều trị nội trú do Tai nạn", nv: FULL, nt: FULL },
                         { label: VITAMIN_LABEL, nv: p.accVitaminNV, nt: p.accVitaminNT },
@@ -1493,7 +1591,7 @@
                     title: "Bảo hiểm điều trị nội trú do Bệnh",
                     rows: [
                         { label: "Số tiền bảo hiểm tối đa", nv: perYear(p.ipSum), nt: perYear(p.ipSum), type: "total" },
-                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "subhead" },
+                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "colhead" },
                         { label: "Tiền giường và phòng mỗi Ngày nằm viện", bullets: ROOM_BULLETS, nv: perDay(p.ipRoom), nt: perDay(p.ipRoom) },
                         { label: "Chi phí điều trị nội trú do Bệnh", nv: FULL, nt: FULL },
                         { label: VITAMIN_LABEL, nv: p.ipVitamin, nt: p.ipVitamin },
@@ -1513,7 +1611,7 @@
                     subtitle: "Thuộc giới hạn Số tiền bảo hiểm tối đa của Bảo hiểm điều trị nội trú do Bệnh • Phạm vi lãnh thổ Việt Nam",
                     rows: [
                         { label: "Số tiền bảo hiểm tối đa", nv: perYear(p.matSum), nt: perYear(p.matSum), type: "total" },
-                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "subhead" },
+                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "colhead" },
                         { label: "Chi phí khám thai (Tối đa 5 lần)", note: MAT_NOTE, nv: p.matAnte, nt: p.matAnte },
                         { label: "Trợ cấp mỗi Ngày nằm viện (Tối đa 60 Ngày nằm viện)", nv: "Không áp dụng", nt: "Không áp dụng" },
                         { label: "Chi phí điều trị biến chứng thai sản và/hoặc sinh khó", nv: FULL, nt: FULL },
@@ -1533,7 +1631,7 @@
                     title: "Bảo hiểm điều trị ngoại trú do Bệnh",
                     rows: [
                         { label: "Số tiền bảo hiểm tối đa", nv: perYear(p.opSum), nt: perYear(p.opSum), type: "total" },
-                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "subhead" },
+                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "colhead" },
                         {
                             label: "Chi phí điều trị ngoại trú do Bệnh (Tính cho Một lần khám và điều trị)",
                             bullets: OP_BULLETS,
@@ -1549,7 +1647,7 @@
                     subtitle: "Thuộc giới hạn phụ của Quyền lợi điều trị Ngoại trú do Bệnh",
                     rows: [
                         { label: "Số tiền bảo hiểm tối đa", nv: perYear(p.dentalSum), nt: perYear(p.dentalSum), type: "total" },
-                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "subhead" },
+                        { label: "Phạm vi bảo hiểm", nv: "Giới hạn phụ", nt: "Giới hạn phụ", type: "colhead" },
                         { label: "Chi phí Cạo vôi răng/đánh bóng răng (Tối đa 2 lần)", nv: FULL, nt: FULL },
                         { label: "Chi phí Kiểm tra, tư vấn, chẩn đoán y khoa", nv: FULL, nt: FULL },
                         { label: "Chi phí Điều trị răng chuyên khoa, bao gồm:", bullets: DENTAL_BULLETS, nv: FULL, nt: FULL }
@@ -1823,10 +1921,17 @@
         }
 
         // Dựng HTML cho một bảng quyền lợi
+        // Màn hình hẹp: gộp cột "Nhân viên" và "Người thân" khi cùng mức
+        function isNarrowScreen() {
+            return window.matchMedia('(max-width: 767px)').matches;
+        }
+
         function buildBenefitTable(block) {
             let rows = '';
             block.rows.forEach(row => {
-                const cls = row.type === 'total' ? 'row-total' : (row.type === 'subhead' ? 'row-subhead' : '');
+                const cls = row.type === 'total' ? 'row-total'
+                    : row.type === 'colhead' ? 'row-subhead row-colhead'
+                    : row.type === 'subhead' ? 'row-subhead' : '';
                 let cell = row.label ? `<span>${esc(row.label)}</span>` : '';
                 if (row.bullets && row.bullets.length) {
                     cell += '<ul>' + row.bullets.map(b => `<li>${esc(b)}</li>`).join('') + '</ul>';
@@ -1834,7 +1939,14 @@
                 if (row.note) {
                     cell += `<p style="margin-top:6px;font-size:11.5px;font-style:italic;color:#6D5C54">${esc(row.note)}</p>`;
                 }
-                rows += `<tr class="${cls}"><td>${cell}</td><td>${escMultiline(row.nv)}</td><td>${escMultiline(row.nt)}</td></tr>`;
+                // Trên điện thoại: nếu Nhân viên và Người thân cùng mức thì gộp 2 cột làm 1 cho rộng
+                const same = row.nv === row.nt;
+                rows += `<tr class="${cls}">`
+                    + `<td>${cell}</td>`
+                    + (same && isNarrowScreen()
+                        ? `<td colspan="2" class="merged">${escMultiline(row.nv)}</td>`
+                        : `<td>${escMultiline(row.nv)}</td><td>${escMultiline(row.nt)}</td>`)
+                    + `</tr>`;
             });
 
             return `
@@ -1844,7 +1956,7 @@
                         ${block.subtitle ? `<p class="text-[11px] text-on-surface-variant mt-1 italic">${esc(block.subtitle)}</p>` : ''}
                     </div>
                     <div class="benefit-table-wrap">
-                        <table class="benefit-table">
+                        <table class="benefit-table fit-sm">
                             <thead><tr><th style="text-align:left">Quyền lợi</th><th>Nhân viên</th><th>Người thân</th></tr></thead>
                             <tbody>${rows}</tbody>
                         </table>
@@ -1866,7 +1978,7 @@
                     </div>
                     <div class="bg-white rounded-[24px] border border-outline-variant shadow-sm overflow-hidden">
                         <div class="benefit-table-wrap">
-                            <table class="benefit-table">
+                            <table class="benefit-table fit-sm">
                                 <thead><tr><th style="text-align:left">Quyền lợi</th><th>Hạn mức / Thời hạn hợp đồng</th></tr></thead>
                                 <tbody>
                                     <tr class="row-total"><td>Bảo hiểm điều trị nội trú do Bệnh</td><td>${esc(d.noitru || '—')}</td></tr>
@@ -1899,7 +2011,7 @@
                 </div>`).join('');
 
             document.getElementById('detail-blacklist').innerHTML = BLACKLIST.map(([name, addr], i) =>
-                `<tr><td style="text-align:center;font-weight:700">${i + 1}</td><td style="text-align:left;font-weight:700;border-left:1px solid #EDE0D9">${esc(name)}</td><td style="text-align:left;width:auto">${esc(addr)}</td></tr>`
+                `<tr><td style="text-align:center;font-weight:700">${i + 1}</td><td data-label="Cơ sở y tế" style="text-align:left;font-weight:700;border-left:1px solid #EDE0D9">${esc(name)}</td><td data-label="Địa chỉ" style="text-align:left;width:auto">${esc(addr)}</td></tr>`
             ).join('');
         }
 
@@ -1955,6 +2067,16 @@
         }
 
         window.addEventListener('hashchange', routeFromHash);
+
+        // Xoay ngang/dọc điện thoại: dựng lại bảng cho đúng chế độ gộp cột
+        let wasNarrow = isNarrowScreen();
+        window.addEventListener('resize', () => {
+            const now = isNarrowScreen();
+            if (now !== wasNarrow) {
+                wasNarrow = now;
+                renderBenefitTables(currentProgram);
+            }
+        });
 
         // --- CẤU HÌNH ĐƯỜNG DẪN APPS SCRIPT ---
         const scriptURL = 'https://script.google.com/macros/s/AKfycby6PlOBJxirQjgjmPiXKmvcgf5Al4T2WEmiZTgqjZQ-aLBsszeXt9cYnziA7zq7QWq8/exec'; 
@@ -2592,11 +2714,11 @@
                     <p class="text-xs text-on-surface-variant italic mb-4">Tỷ lệ tính trên Số tiền bảo hiểm của sản phẩm Tử vong &amp; Thương tật do Tai nạn. Nếu cùng một Tai nạn gây ra từ hai thương tật trở lên, Generali thanh toán số tiền quy định cho mỗi thương tật nhưng <strong>tối đa 100%</strong> Số tiền bảo hiểm.</p>
                     <div class="bg-white rounded-2xl border border-outline-variant overflow-hidden">
                         <div class="benefit-table-wrap">
-                            <table class="benefit-table blvp-table" style="min-width:620px">
+                            <table class="benefit-table blvp-table fit-sm" style="min-width:620px">
                                 <colgroup><col style="width:58px" /><col /><col style="width:110px" /></colgroup>
                                 <thead><tr><th>Mục</th><th style="text-align:left">Mức độ thương tật</th><th>Chi trả</th></tr></thead>
                                 <tbody>
-                                    ${DISABILITY_TABLE.map((r, i) => `<tr><td style="text-align:center;font-weight:700">${i + 1}</td><td style="text-align:left;border-left:1px solid #EDE0D9">${esc(r[0])}</td><td style="font-weight:900;color:#005495">${esc(r[1])}</td></tr>`).join('')}
+                                    ${DISABILITY_TABLE.map((r, i) => `<tr><td class="idx-col" style="text-align:center;font-weight:700">${i + 1}</td><td style="text-align:left;border-left:1px solid #EDE0D9">${esc(r[0])}</td><td data-label="Chi trả" style="font-weight:900;color:#005495">${esc(r[1])}</td></tr>`).join('')}
                                 </tbody>
                             </table>
                         </div>
@@ -2605,7 +2727,7 @@
                         <div class="bg-white rounded-2xl border border-outline-variant overflow-hidden">
                             <div class="bg-background px-5 py-3 border-b border-outline-variant"><p class="font-black text-secondary text-xs uppercase tracking-widest">Quyền lợi bỏng do Tai nạn</p></div>
                             <div class="benefit-table-wrap">
-                                <table class="benefit-table" style="min-width:0">
+                                <table class="benefit-table fit-sm" style="min-width:0">
                                     <thead><tr><th style="text-align:left">Phần bị bỏng</th><th>% diện tích da</th><th>Chi trả</th></tr></thead>
                                     <tbody>
                                         <tr><td rowspan="3" style="vertical-align:middle;font-weight:700">Đầu</td><td>Tối thiểu 2% – dưới 5%</td><td style="font-weight:900;color:#005495">50%</td></tr>
@@ -3340,10 +3462,10 @@
                         <span style="font-weight:700;color:#2D241F">${esc(r[1])}</span>
                         <span style="display:block;font-size:10px;color:#6D5C54;text-transform:uppercase;letter-spacing:.05em;margin-top:3px">${esc(r[0])}</span>
                     </td>
-                    <td style="text-align:left">${esc(r[2])}<span style="display:block;font-size:11px;color:#6D5C54;margin-top:2px">${esc(r[3])}, ${esc(r[4])}</span></td>
-                    <td style="font-size:12px">${esc(r[5])}</td>
-                    <td>${badges.join('') || '<span style="font-size:11px;color:#6D5C54">—</span>'}</td>
-                    <td style="text-align:left;font-size:11.5px">${escMultiline(r[8])}${r[9] ? `<span style="display:block;margin-top:5px;color:#F26522;font-style:italic">${esc(r[9])}</span>` : ''}</td>
+                    <td data-label="Địa chỉ" style="text-align:left">${esc(r[2])}<span style="display:block;font-size:11px;color:#6D5C54;margin-top:2px">${esc(r[3])}, ${esc(r[4])}</span></td>
+                    <td data-label="Điện thoại" style="font-size:12px">${esc(r[5])}</td>
+                    <td data-label="Phạm vi bảo lãnh">${badges.join('') || '<span style="font-size:11px;color:#6D5C54">—</span>'}</td>
+                    <td data-label="Thời gian tiếp nhận &amp; ghi chú" style="text-align:left;font-size:11.5px">${escMultiline(r[8])}${r[9] ? `<span style="display:block;margin-top:5px;color:#F26522;font-style:italic">${esc(r[9])}</span>` : ''}</td>
                 </tr>`;
             }).join('');
         }
