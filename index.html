@@ -259,8 +259,8 @@
     <header class="bg-surface border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm">
         <div class="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between gap-4">
             <div class="flex items-center gap-2 cursor-pointer shrink-0" onclick="navigateTo('home')">
-                <img src="assets/scommerce.png" alt="Scommerce Logo" class="h-8 md:h-10 w-auto" />
-                <span class="text-primary font-black text-xl tracking-tight hidden lg:block uppercase">Health Care</span>
+                <img src="assets/scommerce.png" alt="Scommerce Logo" class="h-5 md:h-6 w-auto" />
+                <span class="text-primary font-black text-base md:text-lg tracking-tight hidden lg:block uppercase">Health Care</span>
             </div>
             
             <nav class="flex items-center gap-4 sm:gap-8 text-xs md:text-sm overflow-x-auto hide-scrollbar scroll-smooth -my-2 py-2 whitespace-nowrap">
@@ -446,7 +446,7 @@
             <section class="bg-secondary text-white rounded-[28px] md:rounded-[40px] p-6 sm:p-10 mx-2 sm:mx-0">
                 <p class="text-[10px] sm:text-xs font-black uppercase tracking-[0.3em] text-white/60 mb-2">Bảo hiểm sức khỏe 2026 • Generali Việt Nam</p>
                 <h2 id="detail-title" class="text-2xl sm:text-4xl font-black uppercase tracking-tight leading-tight">Chương trình 1</h2>
-                <p class="text-white/70 text-sm mt-3">Toàn văn quyền lợi, điều kiện tham gia và quy trình bồi thường.</p>
+                <p class="text-white/70 text-sm mt-3">Chi tiết quyền lợi, điều kiện tham gia và quy trình bồi thường.</p>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
                     <div class="bg-white/10 rounded-2xl p-4">
                         <p class="text-[9px] font-black uppercase tracking-widest text-white/50 mb-1">Nhà bảo hiểm</p>
@@ -893,39 +893,8 @@
                     </div>
                 </section>
 
-                <!-- Thuận lợi / khó khăn / giải pháp -->
-                <section class="space-y-4">
-                    <h3 class="text-lg sm:text-xl font-black text-secondary uppercase tracking-tight border-l-4 border-primary pl-4">Thuận lợi &amp; khó khăn khi dùng dịch vụ bảo lãnh</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div class="bg-white rounded-[24px] border border-green-200 shadow-sm overflow-hidden">
-                            <div class="bg-green-600 text-white px-5 py-3 font-black uppercase text-xs tracking-widest text-center">Thuận lợi</div>
-                            <ul class="p-5 text-sm text-on-surface-variant space-y-2 list-disc pl-8 leading-relaxed">
-                                <li>Không phải thu thập chứng từ</li>
-                                <li>Biết trước được các chi phí được thanh toán</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white rounded-[24px] border border-red-200 shadow-sm overflow-hidden">
-                            <div class="bg-red-500 text-white px-5 py-3 font-black uppercase text-xs tracking-widest text-center">Khó khăn</div>
-                            <ul class="p-5 text-sm text-on-surface-variant space-y-2 list-disc pl-8 leading-relaxed">
-                                <li>Cơ sở y tế có thể yêu cầu đặt cọc chi phí thăm khám</li>
-                                <li>Một số nơi hoàn tạm ứng sau 5–7 ngày (tùy quy định)</li>
-                                <li>Có chênh lệch chi phí khám và điều trị so với dịch vụ thông thường</li>
-                                <li>Phải thanh toán phí dịch vụ bảo lãnh viện phí</li>
-                                <li>Thời gian chờ cơ sở y tế hoàn tất hồ sơ và gửi đề nghị có thể kéo dài</li>
-                            </ul>
-                        </div>
-                        <div class="bg-white rounded-[24px] border-2 border-secondary/20 shadow-sm overflow-hidden">
-                            <div class="bg-secondary text-white px-5 py-3 font-black uppercase text-xs tracking-widest text-center">Giải pháp</div>
-                            <div class="p-5 text-sm text-on-surface-variant leading-relaxed">
-                                <p class="mb-3">Thanh toán trước, thu thập chứng từ và <strong>nộp hồ sơ trên ứng dụng GenVita ngay tại Bệnh viện/Phòng khám</strong> chỉ với 3 bước, nhận được nhiều quyền lợi:</p>
-                                <ul class="space-y-2 list-none">
-                                    <li class="flex gap-2"><span class="text-green-600 font-black">✓</span> Không mất thời gian chờ đợi lâu</li>
-                                    <li class="flex gap-2"><span class="text-green-600 font-black">✓</span> Tiết kiệm chi phí cho các lần điều trị tiếp theo (không phải trả phí dịch vụ bảo lãnh và chi phí thăm khám cao hơn thông thường)</li>
-                                    <li class="flex gap-2"><span class="text-green-600 font-black">✓</span> Theo dõi được tiến trình xử lý và lịch sử yêu cầu bồi thường</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Lưu ý quan trọng khi bị từ chối bảo lãnh -->
+                <section>
                     <div class="bg-red-600 text-white rounded-[24px] p-5 sm:p-7">
                         <p class="text-sm font-bold leading-relaxed">Việc từ chối bảo lãnh viện phí do <span class="underline">CHƯA ĐỦ THÔNG TIN</span> không có nghĩa Thành viên không được bảo hiểm. Thành viên thanh toán tiền trước và yêu cầu bồi thường sau; Generali sẽ giải quyết các chi phí thuộc phạm vi được bảo hiểm.</p>
                     </div>

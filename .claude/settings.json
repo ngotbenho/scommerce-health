@@ -77,7 +77,12 @@
       "Bash(/usr/bin/perl -pe 's{</head>}{<style>#page-home > section:first-child{display:none!important}</style></head>}' index.html)",
       "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1200,700 --screenshot=/tmp/shot/eco.png --virtual-time-budget=8000 \"file:///tmp/shot/eco.html#home\")",
       "Bash(/usr/bin/perl -pe 's{</head>}{<style>#page-home > section:nth-child\\(-n+2\\){display:none!important}</style></head>}' index.html)",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1200,450 --screenshot=/tmp/shot/eco2.png --virtual-time-budget=8000 \"file:///Users/annie/Downloads/scommerce-health-portal/_tmp_eco.html#home\")"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1200,450 --screenshot=/tmp/shot/eco2.png --virtual-time-budget=8000 \"file:///Users/annie/Downloads/scommerce-health-portal/_tmp_eco.html#home\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1200,150 --screenshot=/tmp/shot/hdr.png --virtual-time-budget=6000 \"file:///Users/annie/Downloads/scommerce-health-portal/index.html#home\")",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=430,150 --screenshot=/tmp/shot/hdrm.png --virtual-time-budget=6000 \"file:///Users/annie/Downloads/scommerce-health-portal/index.html#home\")",
+      "Bash(/usr/bin/grep -n \"Thuận lợi &amp; khó khăn\\\\|CHƯA ĐỦ THÔNG TIN\\\\|<!-- Danh sách cơ sở y tế BLVP -->\\\\|<!-- Thuận lợi\" index.html)",
+      "Bash(/usr/bin/perl -pe 's{</body>}{<script>window.addEventListener\\(\"load\",function\\(\\){setTimeout\\(function\\(\\){var s=document.querySelectorAll\\(\"#gsec-blvp > section\"\\);s.forEach\\(function\\(x,i\\){if\\(i<2\\)x.style.display=\"none\"}\\);document.querySelector\\(\"#gsec-blvp > div\"\\).style.display=\"none\";},400\\);}\\);</script></body>}' index.html)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --window-size=1250,900 --screenshot=/tmp/shot/blvp3.png --virtual-time-budget=7000 \"file:///Users/annie/Downloads/scommerce-health-portal/_t.html#guide\")"
     ],
     "additionalDirectories": [
       "/tmp",
