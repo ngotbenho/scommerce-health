@@ -592,7 +592,7 @@
                     <h4 class="font-black text-primary uppercase text-sm tracking-wider">Nhân viên</h4>
                     <ul class="text-sm text-on-surface-variant leading-relaxed space-y-2 list-[lower-alpha] pl-5">
                         <li>Là cá nhân đang cư trú tại Việt Nam, từ đủ <strong>18 tuổi đến 65 tuổi</strong> (đối với thành viên mới) hoặc <strong>đến 70 tuổi</strong> (đối với thành viên tái tục) vào Ngày bắt đầu được bảo hiểm.</li>
-                        <li>Là cá nhân có quan hệ lao động/quan hệ việc làm với Giao Hàng Nhanh theo quy định của pháp luật Việt Nam, làm việc theo hợp đồng lao động, quyết định bổ nhiệm, phân công công việc đang có hiệu lực với Giao Hàng Nhanh.</li>
+                        <li>Là cá nhân có quan hệ lao động/quan hệ việc làm với Scommerce theo quy định của pháp luật Việt Nam, làm việc theo hợp đồng lao động, quyết định bổ nhiệm, phân công công việc đang có hiệu lực với Scommerce.</li>
                         <li>Không đang mắc một trong các bệnh sau: <strong>bệnh ung thư</strong> hoặc <strong>bệnh tâm thần</strong> hoặc đang bị <strong>thương tật với tỷ lệ tổn thương cơ thể từ 81% trở lên</strong>.</li>
                     </ul>
                 </div>
@@ -1032,7 +1032,7 @@
                         <div class="benefit-table-wrap max-h-[560px] overflow-y-auto custom-scrollbar">
                             <table class="benefit-table blvp-table card-sm" style="min-width:1060px">
                                 <colgroup>
-                                    <col style="width:21%" /><col style="width:23%" /><col style="width:11%" /><col style="width:11%" /><col style="width:34%" />
+                                    <col style="width:21%" /><col style="width:23%" /><col style="width:13%" /><col style="width:11%" /><col style="width:32%" />
                                 </colgroup>
                                 <thead class="sticky top-0 z-10">
                                     <tr>
@@ -1921,6 +1921,12 @@
         }
 
         // Dựng HTML cho một bảng quyền lợi
+        // Số điện thoại: khoá khoảng trắng giữa các cụm số để một số không bị ngắt làm đôi.
+        // Vẫn cho xuống dòng ở chỗ ngăn cách nhiều số (" / ") hay trước chữ ("ext", "Hotline", "line").
+        function phoneHtml(s) {
+            return esc(s).replace(/(\d)\s+(?=\d)/g, '$1\u00A0');
+        }
+
         // Màn hình hẹp: gộp cột "Nhân viên" và "Người thân" khi cùng mức
         function isNarrowScreen() {
             return window.matchMedia('(max-width: 767px)').matches;
@@ -2589,27 +2595,38 @@
                 render: () => `
                     <div class="space-y-4">
                         <div class="bg-background rounded-2xl p-5 border border-outline-variant/60">
-                            <p class="font-black text-primary text-xs uppercase tracking-widest mb-3">Nhân viên (Người lao động)</p>
-                            <ul class="text-sm text-on-surface-variant space-y-2 list-disc pl-5 leading-relaxed">
-                                <li>Cá nhân đang cư trú tại Việt Nam, từ đủ <strong>18 đến 70 tuổi</strong> vào Ngày bắt đầu được bảo hiểm.</li>
-                                <li><strong>Không đang nghỉ phép, nghỉ ốm, nghỉ thai sản</strong> vào Ngày bắt đầu được bảo hiểm — nếu đang nghỉ, ngày bắt đầu được bảo hiểm được tính là ngày quay lại làm việc.</li>
-                                <li>Đáp ứng tiêu chuẩn thẩm định của Generali và được ghi nhận trong Danh sách thành viên được bảo hiểm.</li>
+                            <p class="font-black text-primary text-xs uppercase tracking-widest mb-3">Nhân viên</p>
+                            <ul class="text-sm text-on-surface-variant space-y-2 list-[lower-alpha] pl-5 leading-relaxed">
+                                <li>Là cá nhân đang cư trú tại Việt Nam, từ đủ <strong>18 tuổi đến 65 tuổi</strong> (đối với thành viên mới) hoặc <strong>đến 70 tuổi</strong> (đối với thành viên tái tục) vào Ngày bắt đầu được bảo hiểm.</li>
+                                <li>Là cá nhân có quan hệ lao động/quan hệ việc làm với Scommerce theo quy định của pháp luật Việt Nam, làm việc theo hợp đồng lao động, quyết định bổ nhiệm, phân công công việc đang có hiệu lực với Scommerce.</li>
+                                <li>Không đang mắc một trong các bệnh sau: <strong>bệnh ung thư</strong> hoặc <strong>bệnh tâm thần</strong> hoặc đang bị <strong>thương tật với tỷ lệ tổn thương cơ thể từ 81% trở lên</strong>.</li>
                             </ul>
                         </div>
                         <div class="bg-background rounded-2xl p-5 border border-outline-variant/60">
                             <p class="font-black text-primary text-xs uppercase tracking-widest mb-3">Người phụ thuộc</p>
-                            <ul class="text-sm text-on-surface-variant space-y-2 list-disc pl-5 leading-relaxed">
-                                <li><strong>Vợ/chồng hợp pháp:</strong> không vượt quá 70 tuổi vào Ngày bắt đầu được bảo hiểm.</li>
-                                <li><strong>Cha/mẹ ruột, cha/mẹ ruột của vợ/chồng:</strong> không vượt quá 70 tuổi.</li>
-                                <li><strong>Con ruột, con nuôi hợp pháp, con riêng của vợ/chồng:</strong> từ đủ 15 ngày tuổi đến 25 tuổi, không tham gia quan hệ lao động nào và chưa phát sinh thu nhập từ quan hệ lao động đó.</li>
-                                <li><strong>Anh, chị em ruột hoặc người có quan hệ nuôi dưỡng:</strong> không vượt quá 70 tuổi.</li>
+                            <ul class="text-sm text-on-surface-variant space-y-2 list-[lower-alpha] pl-5 leading-relaxed">
+                                <li>Người phụ thuộc là cá nhân có quan hệ hôn nhân, huyết thống hoặc nuôi dưỡng với Người lao động.</li>
+                                <li>Không đang mắc một trong các bệnh sau: bệnh ung thư hoặc bệnh tâm thần hoặc đang bị thương tật với tỷ lệ tổn thương cơ thể từ 81% trở lên.</li>
                             </ul>
+                            <div class="space-y-3 mt-4">
+                                <div class="flex gap-3 bg-white rounded-xl p-4 border border-outline-variant/60">
+                                    <span class="text-green-600 font-black shrink-0">✔</span>
+                                    <p class="text-sm text-on-surface-variant leading-relaxed"><strong>Cha/mẹ ruột, cha/mẹ ruột của vợ/chồng hợp pháp</strong> của Người lao động: không vượt quá <strong>65 tuổi</strong> vào Ngày bắt đầu được bảo hiểm cho thành viên mới và không vượt quá <strong>70 tuổi</strong> cho thành viên tái tục.</p>
+                                </div>
+                                <div class="flex gap-3 bg-white rounded-xl p-4 border border-outline-variant/60">
+                                    <span class="text-green-600 font-black shrink-0">✔</span>
+                                    <p class="text-sm text-on-surface-variant leading-relaxed"><strong>Vợ/Chồng</strong> có quan hệ hôn nhân hợp pháp: không vượt quá <strong>65 tuổi</strong> vào Ngày bắt đầu được bảo hiểm cho thành viên mới và không vượt quá <strong>70 tuổi</strong> cho thành viên tái tục.</p>
+                                </div>
+                                <div class="flex gap-3 bg-white rounded-xl p-4 border border-outline-variant/60">
+                                    <span class="text-green-600 font-black shrink-0">✔</span>
+                                    <div class="text-sm text-on-surface-variant leading-relaxed space-y-1">
+                                        <p><strong>Con của Người lao động:</strong></p>
+                                        <p>i. Từ đủ <strong>16 ngày tuổi đến dưới 18 tuổi</strong> vào Ngày bắt đầu được bảo hiểm và không tham gia quan hệ lao động toàn thời gian theo quy định pháp luật lao động; hoặc</p>
+                                        <p>ii. Chưa kết hôn, từ đủ <strong>18 tuổi đến dưới 23 tuổi</strong> vào Ngày bắt đầu được bảo hiểm và đang theo học tại Việt Nam hoặc nước ngoài bậc phổ thông, đại học, cao đẳng, trung học chuyên nghiệp, dạy nghề và không có thu nhập.</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-orange-50 rounded-2xl p-5 border border-primary/30">
-                            <p class="font-black text-primary text-xs uppercase tracking-widest mb-2">Quyền lợi chăm sóc thai sản</p>
-                            <p class="text-sm text-on-surface-variant leading-relaxed">Thành viên được bảo hiểm là <strong>nữ từ 18 đến 44 tuổi</strong> tại ngày hiệu lực của quyền lợi này và được Generali chấp thuận bảo hiểm.</p>
-                        </div>
-                        <p class="text-xs text-on-surface-variant italic">Lưu ý: điều kiện tham gia cụ thể của chương trình BHSK Scommerce (giới hạn tuổi 18–65 cho thành viên mới, 70 cho tái tục) được nêu tại trang Quyền lợi — đây là thỏa thuận riêng giữa công ty và Generali, được ưu tiên áp dụng.</p>
                     </div>`
             },
             {
@@ -3463,7 +3480,7 @@
                         <span style="display:block;font-size:10px;color:#6D5C54;text-transform:uppercase;letter-spacing:.05em;margin-top:3px">${esc(r[0])}</span>
                     </td>
                     <td data-label="Địa chỉ" style="text-align:left">${esc(r[2])}<span style="display:block;font-size:11px;color:#6D5C54;margin-top:2px">${esc(r[3])}, ${esc(r[4])}</span></td>
-                    <td data-label="Điện thoại" style="font-size:12px">${esc(r[5])}</td>
+                    <td data-label="Điện thoại" style="font-size:12px">${phoneHtml(r[5])}</td>
                     <td data-label="Phạm vi bảo lãnh">${badges.join('') || '<span style="font-size:11px;color:#6D5C54">—</span>'}</td>
                     <td data-label="Thời gian tiếp nhận &amp; ghi chú" style="text-align:left;font-size:11.5px">${escMultiline(r[8])}${r[9] ? `<span style="display:block;margin-top:5px;color:#F26522;font-style:italic">${esc(r[9])}</span>` : ''}</td>
                 </tr>`;
